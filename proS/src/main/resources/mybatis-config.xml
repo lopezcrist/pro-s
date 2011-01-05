@@ -8,5 +8,7 @@
 		<!-- changes from the defaults -->
 		<setting name="lazyLoadingEnabled" value="false" />
 	</settings>
-
+	<typeAliases>
+		<typeAlias alias="user" type="com.wozeze.pros.demo.domain.User" />
+	</typeAliases>
 </configuration>

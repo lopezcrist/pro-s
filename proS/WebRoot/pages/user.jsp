@@ -1,14 +1,14 @@
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
-</head>
- 
+<title>struts2 testDemotitle</title>
+<head>
 <body>
-<h1>Struts 2 + Spring integration example22</h1>
-
-<s:property value="name"/>
-<s:bean name="userAction"></s:bean>
-11
-
-</body>
+<s:form action="loginAction.action" method="post">
+	<s:textfield key="username" name="user.username" />
+	<s:password key="password" name="user.password" />
+	<s:submit value="submit"/>
+</s:form>
+<body>
 </html>
