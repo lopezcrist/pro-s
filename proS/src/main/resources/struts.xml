@@ -5,16 +5,11 @@
 
 <struts>
 	<constant name="struts.objectFactory" value="spring" />
-	<constant name="struts.devMode" value="true" />
-
+	<constant name="struts.devMode" value="false" />
 	<package name="default" namespace="/" extends="struts-default">
-
 		<action name="loginAction" class="com.wozeze.pros.demo.action.UserAction">
 			<result name="success">/pages/user.jsp</result>
 			<result name="error">/pages/user.jsp</result>
 		</action>
-
 	</package>
-
-
 </struts>
