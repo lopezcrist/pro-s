@@ -5,7 +5,7 @@
 <title>struts2 testDemotitle</title>
 <head>
 <body>
-<s:form action="loginAction.action" method="post">
+<s:form action="loginAction" method="post">
 	<s:textfield key="username" name="user.username" />
 	<s:password key="password" name="user.password" />
 	<s:submit value="submit"/>
