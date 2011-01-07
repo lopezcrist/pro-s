@@ -17,21 +17,24 @@
      http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
-
+	
+	<!-- MySQL -->
+	<!-- 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName">
-			<value>com.mysql.jdbc.Driver</value>
-		</property>
-		<property name="url">
-			<value>jdbc:mysql://localhost:3306/pros</value>
-		</property>
-		<property name="username">
-			<value>root</value>
-		</property>
-		<property name="password">
-			<value>123456</value>
-		</property>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/pros" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
+	</bean>
+	 -->
+	
+	<!-- Oracle -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@192.168.7.240:1521:webdb" />
+		<property name="username" value="test1" />
+		<property name="password" value="test000" />
 	</bean>
 
 	<bean id="transactionManager"
@@ -58,8 +61,5 @@
 		<property name="basePackage" value="com.wozeze.pros.demo.dao" />
 	</bean>
 	
-	<bean id="userService" class="com.wozeze.pros.demo.service.impl.UserServiceImpl"/>
-	<bean id="loginAction" class="com.wozeze.pros.demo.action.UserAction" scope="prototype">
-		<property name="userService" ref="userService"></property>
-	</bean>
+	<bean id="loginAction" class="com.wozeze.pros.demo.action.UserAction" scope="prototype"/>
 </beans>
