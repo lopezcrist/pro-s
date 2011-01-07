@@ -22,9 +22,9 @@ public class UserAction {
 	public String execute() throws Exception {
 		User user1 = userService.getUserByUsernameAndPassword(user);
 		if(user1!=null){
-			System.out.println(user1.getPassword());
-			System.out.println(user1.getUsername());
+			return "success";
+		}else{
+			return "failure";
 		}
-		return "success";
 	}
 }
