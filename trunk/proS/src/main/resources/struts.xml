@@ -11,10 +11,9 @@
 			<result name="success">/pages/demo/success.jsp</result>
 			<result name="error">/pages/demo/failure.jsp</result>
 		</action>
-	</package> 
-	<package name="default" namespace="/pages/demo" extends="json-default">
-		<action name="jsonLoginAction" class="com.wozeze.pros.demo.action.JsonUserAction">
-			<result type="json"/>
+		<action name="jsonLoginAction" class="com.wozeze.pros.demo.action.AjaxJsonUserAction">
+			<result name="success">/pages/demo/success.jsp</result>
+			<result name="error">/pages/demo/failure.jsp</result>
 		</action>
-	</package>
+	</package> 
 </struts>
