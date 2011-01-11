@@ -1,23 +1,48 @@
 package com.wozeze.pros.demo.action;
 
+import java.util.HashMap;
+import java.util.Map;
 import net.sf.json.JSONObject;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.wozeze.pros.demo.domain.User;
 
 public class AjaxJsonUserAction extends ActionSupport {
 	
+	@SuppressWarnings("static-access")
 	public String execute(){
-		JSONObject userJson = JSONObject.fromObject(user);
+		Map<String, String> userMap = new HashMap<String, String>();
+		userMap.put("username", username);
+		userMap.put("password", password);
+		JSONObject userJson = JSONObject.fromObject(userMap);
 		this.result = userJson.toString();
 		System.out.println(result);
-		return "success";
+		return this.SUCCESS;
 	}
 
 	private static final long serialVersionUID = 1L;
 
 	private String result;
 	
+	private String username;
+	
+	private String password;
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	private User user;
 
 	public String getResult() {

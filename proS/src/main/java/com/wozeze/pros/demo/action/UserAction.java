@@ -1,9 +1,6 @@
 package com.wozeze.pros.demo.action;
 
 import javax.annotation.Resource;
-
-import net.sf.json.JSONObject;
-
 import com.wozeze.pros.demo.domain.User;
 import com.wozeze.pros.demo.service.iface.IUserService;
 

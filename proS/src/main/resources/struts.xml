@@ -6,7 +6,7 @@
 <struts>
 	<constant name="struts.objectFactory" value="spring" />
 	<constant name="struts.devMode" value="false" />
-	 <package name="default" namespace="/pages/demo" extends="struts-default">
+	<package name="default" namespace="/pages/demo" extends="struts-default">
 		<action name="loginAction" class="com.wozeze.pros.demo.action.UserAction">
 			<result name="success">/pages/demo/success.jsp</result>
 			<result name="error">/pages/demo/failure.jsp</result>
@@ -15,5 +15,18 @@
 			<result name="success">/pages/demo/success.jsp</result>
 			<result name="error">/pages/demo/failure.jsp</result>
 		</action>
-	</package> 
+	</package>
+
+	<package name="json" extends="json-default">
+		<action name="jsonAction" class="com.wozeze.pros.demo.action.AjaxJsonUserAction">
+			<result type="json">
+				<!-- 因为要将reslut的值返回给客户端，所以这样设置 -->
+				<!-- root的值对应要返回的值的属性 -->
+				<param name="root">
+					result
+				</param>
+			</result>
+		</action>
+	</package>
+	
 </struts>
