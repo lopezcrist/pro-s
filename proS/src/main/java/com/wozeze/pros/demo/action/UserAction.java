@@ -1,6 +1,9 @@
 package com.wozeze.pros.demo.action;
 
 import javax.annotation.Resource;
+
+import net.sf.json.JSONObject;
+
 import com.wozeze.pros.demo.domain.User;
 import com.wozeze.pros.demo.service.iface.IUserService;
 
@@ -18,7 +21,7 @@ public class UserAction {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
+	
 	public String execute() throws Exception {
 		User user1 = userService.getUserByUsernameAndPassword(user);
 		if(user1!=null){
