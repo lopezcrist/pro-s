@@ -3,10 +3,15 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.wozeze.pros.demo.dao.UserMapper">
-  <select id="getUserByUserNameAndPassword" parameterType="user" resultType="user">
+  <select id="queryUserByUserNameAndPassword" parameterType="user" resultType="user">
     SELECT *          
     FROM TE_USER
     WHERE USERNAME = #{username}
     AND PASSWORD = #{password}
   </select>
+  
+  <insert id="insertUser" parameterType="user">
+  	INSERT INTO TE_USER (USERNAME, PASSWORD)
+  	VALUES (#{username}, #{password})
+  </insert>
 </mapper>
