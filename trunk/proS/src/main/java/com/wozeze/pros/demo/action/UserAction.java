@@ -24,7 +24,7 @@ public class UserAction {
 		if(user1!=null){
 			return "success";
 		}else{
-			return "failure";
+			return "error";
 		}
 	}
 }
