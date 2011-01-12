@@ -4,5 +4,5 @@ import com.wozeze.pros.demo.domain.User;
 
 public interface UserMapper {
 
-	public User getUserByUserNameAndPassword(String username);
+	public User getUserByUserNameAndPassword(User user);
 }
