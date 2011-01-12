@@ -19,9 +19,9 @@
 		</action>
 		
 		<action name="user_*" class="com.wozeze.pros.demo.action.UserActionWithMethods" method="{1}">
-			<result name="success">/pages/demo/success.jsp</result>
-			
-			<result name="error">/pages/demo/failure.jsp</result>
+			<result name="success">/pages/demo/user_{1}_success.jsp</result>
+			<result name="input">/pages/demo/user_{1}.jsp</result>
+			<result name="error">/pages/demo/user_{1}_failure.jsp</result>
 		</action>
 	</package>
 
