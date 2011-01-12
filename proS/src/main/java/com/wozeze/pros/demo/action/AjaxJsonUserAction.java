@@ -3,12 +3,10 @@ package com.wozeze.pros.demo.action;
 import java.util.HashMap;
 import java.util.Map;
 import net.sf.json.JSONObject;
-import com.opensymphony.xwork2.ActionSupport;
 import com.wozeze.pros.demo.domain.User;
 
-public class AjaxJsonUserAction extends ActionSupport {
+public class AjaxJsonUserAction {
 	
-	@SuppressWarnings("static-access")
 	public String execute(){
 		Map<String, String> userMap = new HashMap<String, String>();
 		userMap.put("username", username);
@@ -16,7 +14,7 @@ public class AjaxJsonUserAction extends ActionSupport {
 		JSONObject userJson = JSONObject.fromObject(userMap);
 		this.result = userJson.toString();
 		System.out.println(result);
-		return this.SUCCESS;
+		return "success";
 	}
 
 	private static final long serialVersionUID = 1L;
