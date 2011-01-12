@@ -7,12 +7,14 @@
 	<constant name="struts.objectFactory" value="spring" />
 	<constant name="struts.devMode" value="false" />
 	<package name="default" namespace="/pages/demo" extends="struts-default">
+		<!-- 从action访问页面, 否则验证功能不好使 -->
+		<action name="*">
+			<result>{1}.jsp</result>
+		</action>
+		
 		<action name="loginAction" class="com.wozeze.pros.demo.action.UserAction">
 			<result name="success">/pages/demo/success.jsp</result>
-			<result name="error">/pages/demo/failure.jsp</result>
-		</action>
-		<action name="jsonLoginAction" class="com.wozeze.pros.demo.action.AjaxJsonUserAction">
-			<result name="success">/pages/demo/success.jsp</result>
+			<result name="input">/pages/demo/user.jsp</result>
 			<result name="error">/pages/demo/failure.jsp</result>
 		</action>
 	</package>
@@ -28,5 +30,5 @@
 			</result>
 		</action>
 	</package>
-	
+
 </struts>
