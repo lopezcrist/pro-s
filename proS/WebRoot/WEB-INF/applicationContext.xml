@@ -47,9 +47,11 @@
 	<!-- enable autowire -->
 	<context:annotation-config />
 	
-	<context:component-scan base-package="com.wozeze.pros.service.impl.system" /> 
+	<context:component-scan base-package="com.wozeze.pros.demo.service.impl" /> 
 	<!-- enable transaction demarcation with annotations -->
 	<tx:annotation-driven />
+
+	<bean id="userAction" class="com.wozeze.pros.demo.action.UserAction" />
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -58,6 +60,8 @@
 
 	<!-- scan for mappers and let them be autowired -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.wozeze.pros.dao.system" />
+		<property name="basePackage" value="com.wozeze.pros.demo.dao" />
 	</bean>
+	
+	<bean id="loginAction" class="com.wozeze.pros.demo.action.UserAction" scope="prototype"/>
 </beans>
