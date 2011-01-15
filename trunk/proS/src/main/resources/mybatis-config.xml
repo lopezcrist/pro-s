@@ -9,6 +9,6 @@
 		<setting name="lazyLoadingEnabled" value="false" />
 	</settings>
 	<typeAliases>
-		<typeAlias alias="user" type="com.wozeze.pros.demo.domain.User" />
+		<typeAlias alias="user" type="com.wozeze.pros.domain.system.User" />
 	</typeAliases>
 </configuration>
