@@ -10,14 +10,34 @@
 	<constant name="struts.ui.templateDir" value="template" />
 	<constant name="struts.ui.templateSuffix" value="ftl" />
 
-	<package name="system" namespace="/system" extends="struts-default">
+	<package name="system" namespace="/pages/system" extends="struts-default">
+		<!--受权限控制的Action请求配置 -->
+		<interceptors>
+			<!--定义一个名为authority的拦截器 -->
+			<interceptor
+				class="com.wozeze.pros.interceptor.AuthorityInterceptor"
+				name="authority" />
+			<!--定义一个包含权限检查的拦截器栈 -->
+			<interceptor-stack name="mydefault">
+				<!--配置内建默认拦截器 -->
+				<interceptor-ref name="defaultStack" />
+				<!--配置自定义的拦截器 -->
+				<interceptor-ref name="authority" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="mydefault" />
+		<!--定义全局Result -->
+		<global-results>
+			<result name="login">/pages/system/user_login.jsp</result>
+		</global-results>
+		
 		<!-- 从action访问页面, 否则验证功能不好使 -->
 		<action name="*T">
 			<result>{1}.jsp</result>
 		</action>
 		
-		<action name="userAction"
-			class="com.wozeze.pros.action.system.UserAction">
+		<action name="userAction" class="com.wozeze.pros.action.system.UserAction">
 			<result name="registerPage">/pages/system/user_register.jsp</result>
 			<result name="input">/pages/demo/success.jsp</result>
 			<result name="error">/pages/demo/success.jsp</result>

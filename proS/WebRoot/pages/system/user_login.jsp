@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+String path = request.getContextPath();
+System.out.print(path);
+%>
 <html>
 <head>
 <style>
@@ -41,13 +46,10 @@ table {
 				<td><s:password name="user.password" /></td>
 			</tr>
 			<tr>
-				<td>重复密码:</td>
-				<td><s:password name="user.passwordRe" /></td>
-			</tr>
-			<tr>
 				<td></td>
 				<td>
-					<s:submit method="register" align="center" type="image" src="../image/register_button.gif" />
+					<s:submit method="login" align="left" type="image" src="../../image/login_button.gif" />
+					<s:submit method="toRegisterPage" align="right" type="image" src="../../image/register_button.gif" />
 				</td>
 			</tr>
 		
