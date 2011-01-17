@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
 <%
 	String path = request.getContextPath();
 %>
@@ -49,8 +49,9 @@ table {
 		<tr>
 			<td></td>
 			<td>
+				 <s:property value="#request.get('javax.servlet.forward.context_path')" />
 				<s:submit method="login" align="left" type="image"
-				src="../../image/login_button.gif"/> 
+				src=<s:property value="#request.get('javax.servlet.forward.context_path') + /image/login_button.gif" />/> 
 				<s:a action="user"
 				method="toRegisterPage" namespace="/pages/system">注册</s:a>
 			</td>
