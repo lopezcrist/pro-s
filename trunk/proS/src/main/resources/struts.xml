@@ -9,13 +9,11 @@
 	<constant name="struts.ui.theme" value="simple" />
 	<constant name="struts.ui.templateDir" value="template" />
 	<constant name="struts.ui.templateSuffix" value="ftl" />
-
-	<package name="system" namespace="/pages/system" extends="struts-default">
-		<!--受权限控制的Action请求配置 -->
+	
+	<package name="authority" extends="struts-default">
 		<interceptors>
 			<!--定义一个名为authority的拦截器 -->
-			<interceptor
-				class="com.wozeze.pros.interceptor.AuthorityInterceptor"
+			<interceptor class="com.wozeze.pros.interceptor.AuthorityInterceptor"
 				name="authority" />
 			<!--定义一个包含权限检查的拦截器栈 -->
 			<interceptor-stack name="mydefault">
@@ -26,33 +24,34 @@
 			</interceptor-stack>
 		</interceptors>
 
-		<!-- <default-interceptor-ref name="mydefault" /> -->
+		<default-interceptor-ref name="mydefault" />
 		<!--定义全局Result -->
 		<global-results>
 			<result name="login">/pages/system/user_login.jsp</result>
 		</global-results>
-		
+	</package>
+	
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="index">
+			<result>/pages/system/user_login.jsp</result>
+		</action>
+	</package>
+	
+	<package name="system" namespace="/pages/system" extends="struts-default">
 		<!-- 从action访问页面, 否则验证功能不好使 -->
-		<action name="*T">
-			<result>{1}.jsp</result>
+		<action name="index">
+			<result>/pages/system/user_login.jsp</result>
 		</action>
-		
-		<!-- 
-		<action name="userAction" class="com.wozeze.pros.action.system.UserAction">
+
+		<action name="user_*" class="com.wozeze.pros.action.system.UserAction" method="{1}">
 			<result name="registerPage">/pages/system/user_register.jsp</result>
-			<result name="input">/pages/demo/success.jsp</result>
-			<result name="error">/pages/demo/success.jsp</result>
-		</action>
-		 -->
-		 <action name="user_*" class="com.wozeze.pros.action.system.UserAction" method="{1}">
-		 	<result name="registerPage">/pages/system/user_register.jsp</result>
 			<result name="input">/pages/system/user_{1}.jsp</result>
 			<result name="error">/pages/system/user_login.jsp</result>
 			<result name="index">/pages/system/user_login.jsp</result>
-		 </action>
+		</action>
 	</package>
 
-	<package name="default" namespace="/pages/demo" extends="struts-default">
+	<package name="demo" namespace="/pages/demo" extends="struts-default">
 		<!-- 从action访问页面, 否则验证功能不好使 -->
 		<action name="*T">
 			<result>{1}.jsp</result>
