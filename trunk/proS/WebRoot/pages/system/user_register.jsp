@@ -30,8 +30,12 @@ table {
 <body>
 <div id="center">
 <table>
-	<s:form namespace="/system" action="userAction" validate="true">
-		
+	<s:form action="user_register" validate="true">
+			<tr>
+				<td colspan="2">
+					<s:fielderror cssStyle="FONT-WEIGHT: bold;color:red;font-size:14px;"></s:fielderror>
+				</td>
+			</tr>
 			<tr>
 				<td>用户名:</td>
 				<td><s:textfield name="user.username" /></td>
@@ -47,7 +51,7 @@ table {
 			<tr>
 				<td></td>
 				<td>
-					<s:submit method="register" align="center" type="image" src="../image/register_button.gif" />
+					<s:submit align="center" type="image" src="../../image/register_button.gif" />
 				</td>
 			</tr>
 		

@@ -1,13 +1,21 @@
 package com.wozeze.pros.action.system;
 
 import javax.annotation.Resource;
+
+import com.opensymphony.xwork2.ActionSupport;
 import com.wozeze.pros.domain.system.User;
 import com.wozeze.pros.service.iface.system.IUserService;
 
-public class UserAction {
+public class UserAction extends ActionSupport{
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Resource
 	IUserService userService;
+	
+	public String toIndexPage() throws Exception{
+		return "index";
+	}
 	
 	/**
 	 * 跳转到注册页面
