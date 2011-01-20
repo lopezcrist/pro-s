@@ -33,7 +33,7 @@ public class UserAction extends ActionSupport{
 	 */
 	public String register() throws Exception{
 		userService.addUser(user);
-		return "success";
+		return "register_success";
 	}
 	
 	/**
@@ -44,9 +44,10 @@ public class UserAction extends ActionSupport{
 	public String login() throws Exception {
 		User user1 = userService.getUserByUsernameAndPassword(user);
 		if(user1!=null){
-			return "success";
+			return "login_success";
 		}else{
-			return "error";
+			this.addFieldError("user.username", "用户名或密码错误");
+			return "login_failure";
 		}
 	}
 

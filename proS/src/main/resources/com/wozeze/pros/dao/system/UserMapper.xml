@@ -11,7 +11,10 @@
   </select>
   
   <insert id="insertUser" parameterType="user">
-  	INSERT INTO TE_USER (USERNAME, PASSWORD)
-  	VALUES (#{username}, #{password})
+  <selectKey keyProperty="userId" resultType="string" order="BEFORE">
+        SELECT sys_guid() FROM dual
+    </selectKey>
+  	INSERT INTO TE_USER (ID, USERNAME, PASSWORD, E_MAIL)
+  	VALUES (#{userId}, #{username}, #{password}, #{email})
   </insert>
 </mapper>
