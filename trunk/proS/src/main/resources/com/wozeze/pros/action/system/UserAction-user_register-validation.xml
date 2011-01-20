@@ -36,13 +36,29 @@
 	<field name="user.passwordRe">
 		<field-validator type="requiredstring">
 			<param name="trim">true</param>
-			<message>密码不能为空</message>
+			<message>确认密码不能为空</message>
 		</field-validator>
 
 		<field-validator type="stringlength">
 			<param name="minLength">6</param>
 			<param name="maxLength">18</param>
 			<message>密码长度应在6到18个字符之间</message>
+		</field-validator>
+		
+		<field-validator type="fieldexpression">
+			<param name="expression"> (user.password eq user.passwordRe)</param>
+         	<message>密码必须和确认密码相等</message>
+		</field-validator>
+	</field>
+	
+	<field name="user.email">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>邮箱不能为空</message>
+		</field-validator>
+		<field-validator type="email">
+			<param name="trim">true</param>
+			<message>邮箱不正确</message>
 		</field-validator>
 	</field>
 	

@@ -7,7 +7,7 @@ body {
 	text-align: center;
 }
 
-#center {
+.outerDiv {
 	text-align:center;
 	MARGIN-RIGHT: auto;
 	MARGIN-LEFT: auto;
@@ -17,7 +17,7 @@ body {
 	border: solid;
 }
 
-#loginDiv {
+.loginDiv {
 	text-align: center;
 }
 
@@ -25,15 +25,22 @@ table {
 	text-align: center;
 }
 
+.errorStyle {
+	text-align: left;
+	FONT-WEIGHT: bold;
+	color: red;
+	font-size: 14px;
+}
+
 </style>
 </head>
 <body>
-<div id="center">
+<div class="outerDiv">
 <table>
 	<s:form action="user_register" validate="true">
 			<tr>
 				<td colspan="2">
-					<s:fielderror cssStyle="FONT-WEIGHT: bold;color:red;font-size:14px;"></s:fielderror>
+					<s:fielderror cssClass="errorStyle"></s:fielderror>
 				</td>
 			</tr>
 			<tr>
@@ -47,6 +54,10 @@ table {
 			<tr>
 				<td>重复密码:</td>
 				<td><s:password name="user.passwordRe" /></td>
+			</tr>
+			<tr>
+				<td>邮箱:</td>
+				<td><s:textfield name="user.email" /></td>
 			</tr>
 			<tr>
 				<td></td>
