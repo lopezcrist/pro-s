@@ -7,14 +7,26 @@ body {
 	text-align: center;
 }
 
+td {
+	border: solid;
+}
+
+table {
+	border:solid blue;
+}
+
 .outerDiv {
-	text-align:center;
+	text-align: center;
 	MARGIN-RIGHT: auto;
 	MARGIN-LEFT: auto;
 	height: 400px;
-	width: 300px;
+	width: 250px;
 	vertical-align: middle;
-	border: solid;
+	border: solid red;
+}
+
+.tdLabel {
+	text-align: left;
 }
 
 .loginDiv {
@@ -44,25 +56,26 @@ table {
 				</td>
 			</tr>
 			<tr>
-				<td>用户名:</td>
+				<td class="tdLabel">用户名:</td>
 				<td><s:textfield name="user.username" /></td>
 			</tr>
 			<tr>
-				<td>密码:</td>
+				<td class="tdLabel">密码:</td>
 				<td><s:password name="user.password" /></td>
 			</tr>
 			<tr>
-				<td>重复密码:</td>
+				<td class="tdLabel">重复密码:</td>
 				<td><s:password name="user.passwordRe" /></td>
 			</tr>
 			<tr>
-				<td>邮箱:</td>
+				<td class="tdLabel">邮箱:</td>
 				<td><s:textfield name="user.email" /></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>
 					<s:submit align="center" type="image" src="../../image/register_button.gif" />
+					<s:a action="index" namespace="/">登陆</s:a>
 				</td>
 			</tr>
 		

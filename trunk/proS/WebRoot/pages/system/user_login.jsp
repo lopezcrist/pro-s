@@ -29,7 +29,7 @@ table {
 	MARGIN-RIGHT: auto;
 	MARGIN-LEFT: auto;
 	height: 400px;
-	width: 230px;
+	width: 260px;
 	vertical-align: middle;
 	border: solid red;
 }
@@ -40,7 +40,7 @@ table {
 
 table {
 	text-align: center;
-	width: 230px;
+	width: 260px;
 }
 
 .errorStyle {
