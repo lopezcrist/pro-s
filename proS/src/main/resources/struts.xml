@@ -5,6 +5,7 @@
 
 <struts>
 	<include file="com/wozeze/pros/struts-module/system.xml"></include>
+	<include file="com/wozeze/pros/struts-module/target_catelog.xml"></include>
 	<include file="com/wozeze/pros/struts-module/others.xml"></include>
 
 

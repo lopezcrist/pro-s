@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wozeze.pros.dao.target_catelog.TargetCatelogMapper">
+  <insert id="insertTargetCatelog" parameterType="targetCatelog">
+  	INSERT INTO TE_TARGET_CATELOG (TARGET_CATELOG_NAME, DETAIL)
+  	VALUES (#{catelogName}, #{catelogDetail})
+  </insert>
+</mapper>

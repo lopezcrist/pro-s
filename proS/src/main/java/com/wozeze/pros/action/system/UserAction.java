@@ -2,6 +2,7 @@ package com.wozeze.pros.action.system;
 
 import javax.annotation.Resource;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.wozeze.pros.domain.system.User;
 import com.wozeze.pros.service.iface.system.IUserService;
@@ -44,6 +45,7 @@ public class UserAction extends ActionSupport{
 	public String login() throws Exception {
 		User user1 = userService.getUserByUsernameAndPassword(user);
 		if(user1!=null){
+			ActionContext.getContext().getSession().put("user", user1.getUsername());
 			return "login_success";
 		}else{
 			this.addFieldError("user.username", "用户名或密码错误");
