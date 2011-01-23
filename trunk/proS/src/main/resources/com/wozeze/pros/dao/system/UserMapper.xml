@@ -9,12 +9,13 @@
     WHERE USERNAME = #{username}
     AND PASSWORD = #{password}
   </select>
-  
-  <insert id="insertUser" parameterType="user">
-  <selectKey keyProperty="userId" resultType="string" order="BEFORE">
-        SELECT sys_guid() FROM dual
+  <!--
+    <selectKey keyProperty="userId" resultType="string" order="BEFORE">
+         SELECT sys_guid() FROM dual 
     </selectKey>
-  	INSERT INTO TE_USER (ID, USERNAME, PASSWORD, E_MAIL)
-  	VALUES (#{userId}, #{username}, #{password}, #{email})
+    -->
+  <insert id="insertUser" parameterType="user">
+  	INSERT INTO TE_USER (USERNAME, PASSWORD, E_MAIL)
+  	VALUES (#{username}, #{password}, #{email})
   </insert>
 </mapper>
