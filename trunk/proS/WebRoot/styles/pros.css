@@ -56,6 +56,7 @@ input[type='text'] {
 	width: 760px;
 	height: 30px;
 }  /******* margin иосробвС*******/
+
 .menu_item {
 	margin: 6px 10px 0px 20px;
 	float: left;
@@ -72,7 +73,7 @@ input[type='text'] {
 }
 
 #table_center {
-	margin-top: 20px;
+	margin-top: 30px;
 	MARGIN-RIGHT: auto;
 	MARGIN-LEFT: auto;
 	width: 500px;
@@ -80,6 +81,7 @@ input[type='text'] {
 }
 
 #table_center td {
+	height:20px;
 	border: 1px solid black;
 }
 
