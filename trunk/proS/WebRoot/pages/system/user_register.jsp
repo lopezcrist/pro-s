@@ -17,7 +17,7 @@ table {
 }
 
 .tdLabel {
-	padding-left:20px;
+	padding-left:8px;
 	width:70px;
 	text-align: left;
 	font-family:"宋体"; 
@@ -57,6 +57,10 @@ table {
 	color: red;
 	font-size: 14px;
 }
+
+.s_text {
+	width:160px;
+}
 </style>
 </head>
 <body>
@@ -73,19 +77,19 @@ table {
 			</tr>
 			<tr>
 				<td class="tdLabel">用户名:</td>
-				<td><s:textfield name="user.username" /></td>
+				<td><s:textfield cssClass="s_text" name="user.username" /></td>
 			</tr>
 			<tr>
 				<td class="tdLabel">密码:</td>
-				<td><s:password name="user.password" /></td>
+				<td><s:password cssClass="s_text" name="user.password" /></td>
 			</tr>
 			<tr>
 				<td class="tdLabel">重复密码:</td>
-				<td><s:password name="user.passwordRe" /></td>
+				<td><s:password cssClass="s_text" name="user.passwordRe" /></td>
 			</tr>
 			<tr>
 				<td class="tdLabel">邮箱:</td>
-				<td><s:textfield name="user.email" /></td>
+				<td><s:textfield cssClass="s_text" name="user.email" /></td>
 			</tr>
 			<tr>
 				<td></td>

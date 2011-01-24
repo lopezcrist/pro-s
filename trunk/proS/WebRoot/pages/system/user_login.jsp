@@ -12,13 +12,20 @@ body {
 	text-align: center;
 }
 
+input[type='text'] {
+	border: solid 1px silver;
+	background-color: #e6f0f9;
+	width: 200px;
+}
+
 .tdLabel {
-	padding-left:20px;
+	padding-left:10px;
 	width:70px;
 	text-align: left;
 	font-family:"宋体"; 
 	font-size: 15px; 
 	font-style: normal;
+	
 }
 
 .signinFont {
@@ -53,6 +60,10 @@ table {
 	color: red;
 	font-size: 14px;
 }
+
+.s_text {
+	width:160px;
+}
 </style>
 </head>
 <body>
@@ -69,11 +80,11 @@ table {
 		</tr>
 		<tr>
 			<td class="tdLabel">用户名:</td>
-			<td><s:textfield name="user.username" /></td>
+			<td><s:textfield cssClass="s_text" name="user.username" /></td>
 		</tr>
 		<tr>
 			<td class="tdLabel">密码:</td>
-			<td><s:password name="user.password" /></td>
+			<td><s:password cssClass="s_text" name="user.password" /></td>
 		</tr>
 		<tr>
 			<td></td>

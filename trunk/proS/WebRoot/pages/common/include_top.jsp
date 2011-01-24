@@ -10,8 +10,6 @@
 <title>首页</title>
 </head>
 <body>
-<s:form action="user" method="logout" namespace="/pages/system">
-</s:form>
 <div id="center">
 <div id="top">
 	<s:a action="user" method="logout" namespace="/pages/system">退出</s:a>
