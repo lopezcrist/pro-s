@@ -2,6 +2,7 @@ package com.wozeze.pros.action.target_catelog;
 
 import javax.annotation.Resource;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
 import com.wozeze.pros.service.iface.target_catelog.ITargetCatelogService;
@@ -33,6 +34,7 @@ public class TargetCatelogAction extends ActionSupport {
 	 */
 	public String addTargetCatelog() {
 		targetCatelogService.addTargetCatelog(targetCatelog);
+		ActionContext.getContext().put("success_content", "添加目标分类成功");
 		return "addTargetCatelogSuccess";
 	}
 

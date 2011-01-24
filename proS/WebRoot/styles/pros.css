@@ -1,0 +1,95 @@
+body {
+	text-align: center;
+}
+
+.errorStyle {
+	text-align: left;
+	FONT-WEIGHT: bold;
+	color: red;
+	font-size: 14px;
+}
+
+#top {
+	width: 800px;
+	text-align: right;
+}
+
+#center {
+	margin-top:50px;
+	MARGIN-RIGHT: auto;
+	MARGIN-LEFT: auto;
+	width: 800px;
+}
+
+#header {
+	line-height: 100px;
+	font-size: 30px;
+	font-family: sans-serif;
+	margin: 0px;
+	clear: both;
+	background: black;
+	width: 800px;
+	height: 100px;
+	text-align: center;
+	padding-top: 12px;
+}
+
+#mainbox {
+	margin: auto 0px;
+	width: 800px;
+	background: blue;
+	height: 410px;
+}
+
+#menu {
+	margin: 12px 20px 5px 20px;
+	background: red;
+	width: 760px;
+	height: 30px;
+}  /******* margin иосробвС*******/
+
+.menu_item {
+	margin: 2px 10px 2px 20px;
+	float: left;
+	background-color: yellow;
+}
+
+#content {
+	text-align: center;
+	margin: 12px 20px 5px; 20 px;
+	width: 760px;
+	height: 330px;
+	background: green;
+	padding-bottom: 12px
+}
+
+#table_center {
+	padding-top:20px;
+	MARGIN-RIGHT: auto;
+	MARGIN-LEFT: auto;
+	width :500px;
+}
+
+#footer {
+	margin-rop: 0px;
+	width: 800px;
+	height: 40px;
+	background: #fff000;
+}
+
+#td_left {
+	text-align: left;
+	vertical-align: top;
+}
+
+#td_center {
+	text-align: center;
+}
+
+#success_content {
+	padding-top:130px;
+	MARGIN-RIGHT: auto;
+	MARGIN-LEFT: auto;
+	width :500px;
+	color: red;
+}

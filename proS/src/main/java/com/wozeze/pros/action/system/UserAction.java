@@ -14,7 +14,7 @@ public class UserAction extends ActionSupport{
 	@Resource
 	IUserService userService;
 	
-	public String toIndexPage() throws Exception{
+	public String toIndexPage() {
 		return "index";
 	}
 	
@@ -23,7 +23,7 @@ public class UserAction extends ActionSupport{
 	 * @return
 	 * @throws Exception
 	 */
-	public String toRegisterPage() throws Exception{
+	public String toRegisterPage() {
 		return "registerPage";
 	}
 	
@@ -32,7 +32,7 @@ public class UserAction extends ActionSupport{
 	 * @return
 	 * @throws Exception
 	 */
-	public String register() throws Exception{
+	public String register() {
 		userService.addUser(user);
 		return "register_success";
 	}
@@ -42,7 +42,7 @@ public class UserAction extends ActionSupport{
 	 * @return
 	 * @throws Exception
 	 */
-	public String login() throws Exception {
+	public String login() {
 		User user1 = userService.getUserByUsernameAndPassword(user);
 		if(user1!=null){
 			ActionContext.getContext().getSession().put("user", user1.getUsername());
@@ -51,6 +51,11 @@ public class UserAction extends ActionSupport{
 			this.addFieldError("user.username", "用户名或密码错误");
 			return "login_failure";
 		}
+	}
+	
+	public String logout(){
+		ActionContext.getContext().getSession().remove("user");
+		return "logout_success";
 	}
 
 	private User user;

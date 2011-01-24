@@ -6,9 +6,9 @@
 <struts>
 	<package name="target_catelog" namespace="/pages/target_catelog" extends="authority">
 		<action name="targetCatelogAction_*" class="com.wozeze.pros.action.target_catelog.TargetCatelogAction" method="{1}">
-			<result name="targetCatelogAddPage">/pages/target_catelog/target_catelog_add.jsp</result>
-			<result name="input">/pages/system/user_{1}.jsp</result>
-			<result name="addTargetCatelogSuccess">/pages/target_catelog/target_catelog_add_success.jsp</result>
+			<result name="targetCatelogAddPage">/pages/target_catelog/addTargetCatelog.jsp</result>
+			<result name="input">/pages/target_catelog/{1}.jsp</result>
+			<result name="addTargetCatelogSuccess">/pages/common/common_success.jsp</result>
 		</action>
 	</package>
 </struts>
