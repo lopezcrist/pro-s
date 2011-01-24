@@ -2,5 +2,6 @@
 	pageEncoding="utf-8"%>
 </div>
 <div id="footer">这是底部</div>
+</div>
 </body>
 </html>

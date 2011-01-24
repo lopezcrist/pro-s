@@ -3,8 +3,14 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.wozeze.pros.dao.target_catelog.TargetCatelogMapper">
-  <insert id="insertTargetCatelog" parameterType="targetCatelog">
-  	INSERT INTO TE_TARGET_CATELOG (TARGET_CATELOG_NAME, DETAIL)
-  	VALUES (#{catelogName}, #{catelogDetail})
-  </insert>
+
+	<insert id="insertTargetCatelog" parameterType="targetCatelog">
+		<selectKey keyProperty="cateLogId" resultType="string" order="BEFORE">
+			SELECT sys_guid() FROM dual 
+    	</selectKey>
+		INSERT INTO
+		TE_TARGET_CATELOG (ID, CATELOG_NAME, DETAIL)
+		VALUES
+		(#{cateLogId}, #{catelogName}, #{catelogDetail})
+	</insert>
 </mapper>
