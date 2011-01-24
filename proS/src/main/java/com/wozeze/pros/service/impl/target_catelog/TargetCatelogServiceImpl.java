@@ -1,5 +1,7 @@
 package com.wozeze.pros.service.impl.target_catelog;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +18,10 @@ public class TargetCatelogServiceImpl implements ITargetCatelogService {
 	@Override
 	public void addTargetCatelog(TargetCatelog catelog) {
 		targetCatelogMapper.insertTargetCatelog(catelog);
+	}
+
+	@Override
+	public List<TargetCatelog> getTargetCatelogs(TargetCatelog catelog) {
+		return targetCatelogMapper.queryTargetCatelogs(catelog);
 	}
 }

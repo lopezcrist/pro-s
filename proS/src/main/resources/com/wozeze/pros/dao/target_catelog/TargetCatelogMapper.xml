@@ -13,4 +13,11 @@
 		VALUES
 		(#{cateLogId}, #{catelogName}, #{catelogDetail})
 	</insert>
+	
+	<select id="queryTargetCatelogs" parameterType="targetCatelog" resultType="targetCatelog">
+		SELECT t.id AS cateLogId, 
+			t.catelog_name AS catelogName, 
+			t.detail AS catelogDetail FROM 
+			TE_TARGET_CATELOG t
+	</select>
 </mapper>

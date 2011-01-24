@@ -12,35 +12,39 @@ body {
 	text-align: center;
 }
 
-td {
-	border: solid;
-}
-
-table {
-	border:solid blue;
-}
-
 .tdLabel {
+	padding-left:20px;
+	width:70px;
 	text-align: left;
+	font-family:"宋体"; 
+	font-size: 15px; 
+	font-style: normal;
 }
 
+.signinFont {
+	font-family:"宋体"; 
+	font-size: 15px; 
+	font-style: normal;
+}
 .outerDiv {
+	border: 1px solid #000000;
+	margin-top: 200px;
 	text-align: center;
 	MARGIN-RIGHT: auto;
 	MARGIN-LEFT: auto;
-	height: 400px;
-	width: 260px;
+	width: 300px;
 	vertical-align: middle;
-	border: solid red;
 }
 
-.loginDiv {
-	text-align: center;
+#header {
+	width: 300px;
+	height: 100px;
+	border-bottom: 1px solid #000000;
 }
 
 table {
 	text-align: center;
-	width: 260px;
+	width: 300x;
 }
 
 .errorStyle {
@@ -53,6 +57,9 @@ table {
 </head>
 <body>
 <div class="outerDiv">
+<div id="header">
+	这是标题
+</div>
 <table>
 	<s:form action="user_login" namespace="/pages/system" validate="true">
 		<tr>
@@ -72,10 +79,9 @@ table {
 			<td></td>
 			<td>
 				<s:submit method="login" align="left" type="image" src="/proS/image/login_button.png" />
-				<s:a action="user" method="toRegisterPage" namespace="/pages/system">注册</s:a>
+				<s:a cssClass="signinFont" action="user" method="toRegisterPage" namespace="/pages/system">注册	</s:a>
 			</td>
 		</tr>
-
 	</s:form>
 </table>
 </div>

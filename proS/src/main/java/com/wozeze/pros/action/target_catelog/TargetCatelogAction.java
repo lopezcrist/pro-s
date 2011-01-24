@@ -1,7 +1,6 @@
 package com.wozeze.pros.action.target_catelog;
 
 import javax.annotation.Resource;
-
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
@@ -36,6 +35,15 @@ public class TargetCatelogAction extends ActionSupport {
 		targetCatelogService.addTargetCatelog(targetCatelog);
 		ActionContext.getContext().put("success_content", "添加目标分类成功");
 		return "addTargetCatelogSuccess";
+	}
+	
+	/**
+	 * query all targetCatelogs
+	 * @return
+	 */
+	public String queryTargetCatelogs() {
+		ActionContext.getContext().put("targetCatelogs", targetCatelogService.getTargetCatelogs(targetCatelog));
+		return "queryTargetCatelogs";
 	}
 
 	private TargetCatelog targetCatelog;
