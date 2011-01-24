@@ -1,5 +1,7 @@
 package com.wozeze.pros.action.target_catelog;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.Resource;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -42,7 +44,18 @@ public class TargetCatelogAction extends ActionSupport {
 	 * @return
 	 */
 	public String queryTargetCatelogs() {
-		ActionContext.getContext().put("targetCatelogs", targetCatelogService.getTargetCatelogs(targetCatelog));
+		List<TargetCatelog> catelogs = new ArrayList<TargetCatelog>();
+		List<TargetCatelog> allCatelogs = targetCatelogService.getTargetCatelogs(targetCatelog);
+		int index = 0;
+		for(TargetCatelog catelog : allCatelogs){
+			catelogs.add(catelog);
+			index++;
+			if(index == 10){
+				break;
+			}
+		}
+		ActionContext.getContext().put("targetCatelogs", catelogs);
+		
 		return "queryTargetCatelogs";
 	}
 
