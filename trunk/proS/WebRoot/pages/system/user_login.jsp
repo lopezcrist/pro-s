@@ -71,7 +71,7 @@ table {
 		<tr>
 			<td></td>
 			<td>
-				<s:submit method="login" align="left" type="image" src="/proS/image/login_button.gif" />
+				<s:submit method="login" align="left" type="image" src="/proS/image/login_button.png" />
 				<s:a action="user" method="toRegisterPage" namespace="/pages/system">注册</s:a>
 			</td>
 		</tr>
