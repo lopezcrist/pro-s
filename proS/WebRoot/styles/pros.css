@@ -1,5 +1,14 @@
 body {
 	text-align: center;
+	font-family: "кнлЕ";
+	font-size: 15px;
+	font-style: normal;
+}
+
+input[type='text'] {
+	border: solid 1px silver;
+	background-color: #e6f0f9;
+	width: 180px;
 }
 
 .errorStyle {
@@ -15,7 +24,7 @@ body {
 }
 
 #center {
-	margin-top:50px;
+	margin-top: 50px;
 	MARGIN-RIGHT: auto;
 	MARGIN-LEFT: auto;
 	width: 800px;
@@ -47,9 +56,8 @@ body {
 	width: 760px;
 	height: 30px;
 }  /******* margin иосробвС*******/
-
 .menu_item {
-	margin: 2px 10px 2px 20px;
+	margin: 6px 10px 0px 20px;
 	float: left;
 	background-color: yellow;
 }
@@ -64,19 +72,19 @@ body {
 }
 
 #table_center {
-	margin-top:30px;
+	margin-top: 20px;
 	MARGIN-RIGHT: auto;
 	MARGIN-LEFT: auto;
-	width :500px;
-	border-collapse:collapse;
+	width: 500px;
+	border-collapse: collapse;
 }
 
 #table_center td {
-	border:1px solid black;
+	border: 1px solid black;
 }
 
-#table_header{
-	height: 40px;
+#table_header {
+	height: 30px;
 }
 
 #footer {
@@ -96,9 +104,9 @@ body {
 }
 
 #success_content {
-	padding-top:130px;
+	padding-top: 130px;
 	MARGIN-RIGHT: auto;
 	MARGIN-LEFT: auto;
-	width :500px;
+	width: 500px;
 	color: red;
 }
