@@ -12,10 +12,17 @@ body {
 	text-align: center;
 }
 
+#center {
+	margin-top:50px;
+	MARGIN-RIGHT: auto;
+	MARGIN-LEFT: auto;
+	width: 800px;
+}
+
 #header {
-	line-height:100px;
-	font-size:30px;
-	font-family:sans-serif;
+	line-height: 100px;
+	font-size: 30px;
+	font-family: sans-serif;
 	margin: 0px;
 	clear: both;
 	background: black;
@@ -46,7 +53,7 @@ body {
 }
 
 #content {
-	margin: 12px 20px 5px; 20px;
+	margin: 12px 20px 5px; 20 px;
 	width: 760px;
 	height: 330px;
 	background: green;
@@ -63,6 +70,7 @@ body {
 </style>
 </head>
 <body>
+<div id="center">
 <div id="header"><FONT SIZE="3" COLOR="#FFFF33">实现你的目标</FONT></div>
 <div id="mainbox">
 <div id="menu">
