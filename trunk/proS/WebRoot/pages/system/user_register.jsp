@@ -1,40 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
+<%
+	String path = request.getContextPath();
+%>
 <html>
 <head>
 <style>
+
 body {
 	text-align: center;
 }
 
-td {
-	border: solid;
-}
-
 table {
-	border:solid blue;
-}
-
-.outerDiv {
-	text-align: center;
-	MARGIN-RIGHT: auto;
-	MARGIN-LEFT: auto;
-	height: 400px;
-	width: 250px;
-	vertical-align: middle;
-	border: solid red;
+	border:solid 1px #FFFFFF;
 }
 
 .tdLabel {
+	padding-left:20px;
+	width:70px;
 	text-align: left;
+	font-family:"宋体"; 
+	font-size: 15px; 
+	font-style: normal;
 }
 
-.loginDiv {
+.signinFont {
+	font-family:"宋体"; 
+	font-size: 15px; 
+	font-style: normal;
+}
+.outerDiv {
+	border: 1px solid #000000;
+	margin-top: 200px;
 	text-align: center;
+	MARGIN-RIGHT: auto;
+	MARGIN-LEFT: auto;
+	width: 300px;
+	vertical-align: middle;
+}
+
+#header {
+	width: 300px;
+	height: 100px;
+	border-bottom: 1px solid #000000;
 }
 
 table {
 	text-align: center;
+	width: 300x;
 }
 
 .errorStyle {
@@ -43,11 +57,13 @@ table {
 	color: red;
 	font-size: 14px;
 }
-
 </style>
 </head>
 <body>
 <div class="outerDiv">
+<div id="header">
+	这是标题
+</div>
 <table>
 	<s:form action="user_register" validate="true">
 			<tr>
@@ -74,13 +90,13 @@ table {
 			<tr>
 				<td></td>
 				<td>
-					<s:submit align="center" type="image" src="../../image/register_button.gif" />
-					<s:a action="index" namespace="/">登陆</s:a>
+					<s:submit align="center" type="image" src="../../image/signin_button.png" />
+					<s:a action="index" cssClass="signinFont" namespace="/">登陆</s:a>
 				</td>
 			</tr>
 		
 	</s:form>
-	</table>
+</table>
 </div>
 </body>
 </html>

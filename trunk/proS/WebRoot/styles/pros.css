@@ -64,10 +64,19 @@ body {
 }
 
 #table_center {
-	padding-top:20px;
+	margin-top:30px;
 	MARGIN-RIGHT: auto;
 	MARGIN-LEFT: auto;
 	width :500px;
+	border-collapse:collapse;
+}
+
+#table_center td {
+	border:1px solid black;
+}
+
+#table_header{
+	height: 40px;
 }
 
 #footer {
