@@ -1,6 +1,8 @@
 package com.wozeze.pros.domain.target_catelog;
 
-public class TargetCatelog {
+import com.wozeze.pros.domain.BaseDomain;
+
+public class TargetCatelog extends BaseDomain{
 	
 	private String cateLogId;
 	private String catelogName;
