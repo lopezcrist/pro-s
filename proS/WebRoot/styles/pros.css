@@ -112,3 +112,7 @@ input[type='text'] {
 	width: 500px;
 	color: red;
 }
+
+#Pagination {
+	margin-top: 10px;
+}

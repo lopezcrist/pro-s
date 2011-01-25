@@ -20,4 +20,12 @@
 			t.detail AS catelogDetail FROM 
 			TE_TARGET_CATELOG t
 	</select>
+	
+	<select id="pages">
+		<![CDATA[
+		select * from
+		(select rownum rn,t.* from table t rownum < 50)
+		where rownum >= 1
+		]]>
+	</select>
 </mapper>

@@ -5,12 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wozeze.pros.common.Constant;
+import com.wozeze.pros.common.Page;
+import com.wozeze.pros.common.TypeValue;
 import com.wozeze.pros.dao.target_catelog.TargetCatelogMapper;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
+import com.wozeze.pros.service.BaseService;
 import com.wozeze.pros.service.iface.target_catelog.ITargetCatelogService;
 
 @Service
-public class TargetCatelogServiceImpl implements ITargetCatelogService {
+public class TargetCatelogServiceImpl extends BaseService implements ITargetCatelogService {
 	
 	@Autowired
 	TargetCatelogMapper targetCatelogMapper;
@@ -21,7 +25,12 @@ public class TargetCatelogServiceImpl implements ITargetCatelogService {
 	}
 
 	@Override
-	public List<TargetCatelog> getTargetCatelogs(TargetCatelog catelog) {
+	public List<TargetCatelog> getTargetCatelogs(TargetCatelog catelog, Page page) {
 		return targetCatelogMapper.queryTargetCatelogs(catelog);
+	}
+	
+	@Override
+	public int getTargetCatelogTotalCount(){
+		return getTotalCount(new TypeValue("tableName", Constant.T_TARGET_CATELOG));
 	}
 }
