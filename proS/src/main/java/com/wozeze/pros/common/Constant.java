@@ -2,6 +2,12 @@ package com.wozeze.pros.common;
 
 public class Constant {
 
+	/**  target catelog table name*/
 	public static final String T_TARGET_CATELOG = "TE_TARGET_CATELOG";
-	public static final String PAGE_ONE = "one";
+	
+	/** page navigation */
+	public static final String TO_FIRST = "first";
+	public static final String TO_PREVIOUS = "previous";
+	public static final String TO_NEXT= "next";
+	public static final String TO_LAST= "last";
 }

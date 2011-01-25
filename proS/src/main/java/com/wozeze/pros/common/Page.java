@@ -6,11 +6,23 @@ package com.wozeze.pros.common;
  *
  */
 public class Page {
-	private int totalRows; // 总行数
-	private int pageSize = 10; // 每页显示的行数
-	private int currentPage; // 当前页号
-	private int totalPages; // 总页数
-	private int startRow; // 当前页在数据库中的起始行
+	
+	/** 总行数 */
+	private int totalRows; 
+	/** 每页显示的行数 */
+	private int pageSize = 10; 
+	/** 当前页号 */
+	private int currentPage;  
+	/** 总页数 */
+	private int totalPages;  
+	/** 当前页在数据库中的起始行 */
+	private int startRow;  
+	/** 是否有上一页 */
+	private boolean hasPreviousPage;
+	/** 是否有下一页 */
+	private boolean hasNextPage;
+	/** 翻页类型 */
+	private String navigationPage;
 
 	public Page() {
 
@@ -114,5 +126,43 @@ public class Page {
 
 	public int getTotalRows() {
 		return totalRows;
+	}
+	
+	public int getEndRow() {
+		return startRow + pageSize;
+	}
+
+	public boolean isHasPreviousPage() {
+		if(currentPage == 1){
+			hasPreviousPage = false;
+		}else{
+			hasPreviousPage = true;
+		}
+		return hasPreviousPage;
+	}
+
+	public void setHasPreviousPage(boolean hasPreviousPage) {
+		this.hasPreviousPage = hasPreviousPage;
+	}
+
+	public boolean isHasNextPage() {
+		if(currentPage == totalPages){
+			hasNextPage = false;
+		}else {
+			hasNextPage = true;
+		}
+		return hasNextPage;
+	}
+
+	public void setHasNextPage(boolean hasNextPage) {
+		this.hasNextPage = hasNextPage;
+	}
+	
+	public String getNavigationPage() {
+		return navigationPage;
+	}
+
+	public void setNavigationPage(String navigationPage) {
+		this.navigationPage = navigationPage;
 	}
 }

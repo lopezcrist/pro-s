@@ -1,11 +1,11 @@
 package com.wozeze.pros.action.target_catelog;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.wozeze.pros.common.Page;
+import com.wozeze.pros.common.PageUtil;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
 import com.wozeze.pros.service.iface.target_catelog.ITargetCatelogService;
 
@@ -47,24 +47,20 @@ public class TargetCatelogAction extends ActionSupport {
 	 * @return
 	 */
 	public String queryTargetCatelogs() {
-		List<TargetCatelog> catelogs = new ArrayList<TargetCatelog>();
-		List<TargetCatelog> allCatelogs = targetCatelogService.getTargetCatelogs(targetCatelog, page);
-		int index = 0;
-		for(TargetCatelog catelog : allCatelogs){
-			catelogs.add(catelog);
-			index++;
-			if(index == 10){
-				break;
-			}
-		}
+		targetCatelog = new TargetCatelog();
+		targetCatelog.setPage(page);
+		page = PageUtil.getPager(page.getCurrentPage(), page.getNavigationPage(), page.getTotalRows());
+		targetCatelog.setPage(page);
+		List<TargetCatelog> catelogs = targetCatelogService.getTargetCatelogs(targetCatelog, page);
 		ActionContext.getContext().put("targetCatelogs", catelogs);
-		
 		return "queryTargetCatelogs";
 	}
 	
 	public String queryAllTargetCatelogs(){
 		int totalRows = targetCatelogService.getTargetCatelogTotalCount();
 		page = new Page(totalRows);
+		TargetCatelog targetCatelog = new TargetCatelog();
+		targetCatelog.setPage(page);
 		List<TargetCatelog> allCatelogs = targetCatelogService.getTargetCatelogs(targetCatelog, page);
 		ActionContext.getContext().put("targetCatelogs", allCatelogs);
 		return "queryTargetCatelogs";

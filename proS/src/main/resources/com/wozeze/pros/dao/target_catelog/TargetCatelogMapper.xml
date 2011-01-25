@@ -15,17 +15,18 @@
 	</insert>
 	
 	<select id="queryTargetCatelogs" parameterType="targetCatelog" resultType="targetCatelog">
-		SELECT t.id AS cateLogId, 
-			t.catelog_name AS catelogName, 
-			t.detail AS catelogDetail FROM 
-			TE_TARGET_CATELOG t
-	</select>
-	
-	<select id="pages">
 		<![CDATA[
-		select * from
-		(select rownum rn,t.* from table t rownum < 50)
-		where rownum >= 1
+			select t.id     AS cateLogId,
+       		t.catelog_name 	AS catelogName,
+      		t.detail        AS catelogDetail
+  			from te_target_catelog t
+ 			where rowid in
+      		 (select rid
+        	  from (select rownum rn, rid
+                  from (select rowid rid, id from te_target_catelog order by id desc)
+                 where rownum <= #{page.startRow} + #{page.pageSize})
+       			  where rn > #{page.startRow})
+ 				order by id desc
 		]]>
 	</select>
 </mapper>
