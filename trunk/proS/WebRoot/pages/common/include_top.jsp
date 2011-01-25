@@ -6,6 +6,7 @@
 <head>
 <link rel="stylesheet" href="../../styles/pros.css" type="text/css"/>
 <script type="text/javascript" src="../../scripts/pros.js"></script>
+<script type="text/javascript" src="../../scripts/jquery/jquery.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>首页</title>
 </head>
@@ -19,6 +20,6 @@
 <div id="menu">
 	<div class="menu_item">目标</div>
 	<div class="menu_item">增加目标</div>
-	<div class="menu_item"><s:a action="targetCatelogAction" method="queryTargetCatelogs" namespace="/pages/target_catelog">目标分类</s:a></div>
+	<div class="menu_item"><s:a action="targetCatelogAction" method="queryAllTargetCatelogs" namespace="/pages/target_catelog">目标分类</s:a></div>
 	<div class="menu_item"><s:a action="targetCatelogAction" method="toTargetCatelogAddPage" namespace="/pages/target_catelog">增加目标分类</s:a></div>
 </div>
