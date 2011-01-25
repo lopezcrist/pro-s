@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.wozeze.pros.common.Page;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
 import com.wozeze.pros.service.iface.target_catelog.ITargetCatelogService;
 
@@ -19,7 +20,9 @@ public class TargetCatelogAction extends ActionSupport {
 	
 	@Resource
 	ITargetCatelogService targetCatelogService;
-
+	
+	private Page page;
+	
 	/**
 	 * 跳转到目标分类添加页面
 	 * 
@@ -45,7 +48,7 @@ public class TargetCatelogAction extends ActionSupport {
 	 */
 	public String queryTargetCatelogs() {
 		List<TargetCatelog> catelogs = new ArrayList<TargetCatelog>();
-		List<TargetCatelog> allCatelogs = targetCatelogService.getTargetCatelogs(targetCatelog);
+		List<TargetCatelog> allCatelogs = targetCatelogService.getTargetCatelogs(targetCatelog, page);
 		int index = 0;
 		for(TargetCatelog catelog : allCatelogs){
 			catelogs.add(catelog);
@@ -58,6 +61,14 @@ public class TargetCatelogAction extends ActionSupport {
 		
 		return "queryTargetCatelogs";
 	}
+	
+	public String queryAllTargetCatelogs(){
+		int totalRows = targetCatelogService.getTargetCatelogTotalCount();
+		page = new Page(totalRows);
+		List<TargetCatelog> allCatelogs = targetCatelogService.getTargetCatelogs(targetCatelog, page);
+		ActionContext.getContext().put("targetCatelogs", allCatelogs);
+		return "queryTargetCatelogs";
+	}
 
 	private TargetCatelog targetCatelog;
 
@@ -67,6 +78,14 @@ public class TargetCatelogAction extends ActionSupport {
 
 	public void setTargetCatelog(TargetCatelog targetCatelog) {
 		this.targetCatelog = targetCatelog;
+	}
+	
+	public Page getPage() {
+		return page;
+	}
+
+	public void setPage(Page page) {
+		this.page = page;
 	}
 
 }
