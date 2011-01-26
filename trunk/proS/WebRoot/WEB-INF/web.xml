@@ -6,7 +6,10 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:com/wozeze/pros/spring-module/dataSource.xml</param-value>
+		<param-value>
+			classpath:com/wozeze/pros/spring-module/dataSource.xml;
+			classpath:com/wozeze/pros/spring-module/system.xml
+		</param-value>
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
