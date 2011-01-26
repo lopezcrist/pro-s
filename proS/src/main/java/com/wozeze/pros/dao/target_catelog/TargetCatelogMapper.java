@@ -18,4 +18,10 @@ public interface TargetCatelogMapper {
 	 * @return
 	 */
 	public List<TargetCatelog> queryTargetCatelogs(TargetCatelog targetCatelog);
+	
+	/**
+	 * delete a targetCatelog by Id
+	 * @param id
+	 */
+	public void deleteTargetCatelog(TargetCatelog catelog);
 }

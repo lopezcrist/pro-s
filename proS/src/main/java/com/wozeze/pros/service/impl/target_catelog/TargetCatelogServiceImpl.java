@@ -27,6 +27,11 @@ public class TargetCatelogServiceImpl extends BaseService implements ITargetCate
 	}
 	
 	@Override
+	public void removeTargetCatelog(TargetCatelog catelog){
+		targetCatelogMapper.deleteTargetCatelog(catelog);
+	}
+	
+	@Override
 	public int getTargetCatelogTotalCount(){
 		return getTotalCount(new TypeValue("tableName", Constant.T_TARGET_CATELOG));
 	}

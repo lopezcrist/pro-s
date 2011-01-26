@@ -4,15 +4,15 @@ import com.wozeze.pros.domain.BaseDomain;
 
 public class TargetCatelog extends BaseDomain{
 	
-	private String cateLogId;
+	private String catelogId;
 	private String catelogName;
 	private String catelogDetail;
 	
-	public String getCateLogId() {
-		return cateLogId;
+	public String getCatelogId() {
+		return catelogId;
 	}
-	public void setCateLogId(String cateLogId) {
-		this.cateLogId = cateLogId;
+	public void setCatelogId(String catelogId) {
+		this.catelogId = catelogId;
 	}
 	public String getCatelogName() {
 		return catelogName;

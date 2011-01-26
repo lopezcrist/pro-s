@@ -95,17 +95,6 @@ public class Page {
 		setPreNextBoolean();
 	}
 
-	/**
-	 * 刷新页面
-	 * @param _currentPage
-	 */
-	public void refresh(int _currentPage) {
-		currentPage = _currentPage;
-		if (currentPage > totalPages) {
-			last();
-		}
-	}
-	
 	private void setPreNextBoolean(){
 		if(currentPage != 1){
 			hasPreviousPage = true;
