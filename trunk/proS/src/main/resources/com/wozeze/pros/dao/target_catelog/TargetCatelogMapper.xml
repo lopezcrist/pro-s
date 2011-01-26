@@ -18,7 +18,7 @@
 		<![CDATA[
 			select t.id     AS cateLogId,
        		t.catelog_name 	AS catelogName,
-      		t.detail        AS catelogDetail
+      		(CASE WHEN LENGTH(t.detail) >= 15 then substr(t.detail,1,15)||'...' else t.detail end)  AS catelogDetail
   			from te_target_catelog t
  			where rowid in
       		 (select rid
