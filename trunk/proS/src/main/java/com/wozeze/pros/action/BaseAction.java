@@ -19,8 +19,6 @@ public abstract class BaseAction extends ActionSupport {
 
 	protected Page page;
 
-	protected String actionUrl;
-
 	protected void setPageValue(BaseDomain baseDomain, String tableName){
 		if(page == null){
 			// from the menu link to this action method
@@ -42,13 +40,4 @@ public abstract class BaseAction extends ActionSupport {
 	public void setPage(Page page) {
 		this.page = page;
 	}
-
-	public String getActionUrl() {
-		return actionUrl;
-	}
-
-	public void setActionUrl(String actionUrl) {
-		this.actionUrl = actionUrl;
-	}
-
 }
