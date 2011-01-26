@@ -24,7 +24,7 @@ input[type='text'] {
 }
 
 #center {
-	margin-top: 50px;
+	margin-top: 30px;
 	MARGIN-RIGHT: auto;
 	MARGIN-LEFT: auto;
 	width: 800px;
@@ -65,7 +65,7 @@ input[type='text'] {
 
 #content {
 	text-align: center;
-	margin: 12px 20px 5px; 20 px;
+	margin: 12px 20px 5px; 20px;
 	width: 760px;
 	height: 330px;
 	background: green;
@@ -90,7 +90,7 @@ input[type='text'] {
 }
 
 #footer {
-	margin-rop: 0px;
+	margin-top: 0px;
 	width: 800px;
 	height: 40px;
 	background: #fff000;
@@ -114,5 +114,5 @@ input[type='text'] {
 }
 
 #pagination {
-	margin-top: 10px;
+
 }

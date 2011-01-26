@@ -7,6 +7,7 @@
 			$("#operateForm").submit();
 		}
 	)
+	
 	$("#updateImg").click(
 		function updateItem(itemIdValue){
 			$("#itemId").attr("value", itemIdValue);
@@ -21,7 +22,7 @@
 		<td>序号</td>
 		<td>操作</td>
 		<td>目标分类名称</td>
-		<td>目标分类详情</td>
+		<td>目标分类详情[<s:property value="page.totalRows" />]</td>
 	</tr>
 	
 	<s:iterator value="#request.targetCatelogs" status="status">
@@ -36,9 +37,9 @@
 		</tr>
 	</s:iterator>
 </table>
+<%@ include file="../common/pagination.jsp"%>
+</div>
 <s:form id="operateForm">
 	<s:hidden id="itemId" name="targetCatelog.catelogId"/>
 </s:form>
-<%@ include file="../common/pagination.jsp"%>
-</div>
 <%@ include file="../common/include_bottom.jsp"%>

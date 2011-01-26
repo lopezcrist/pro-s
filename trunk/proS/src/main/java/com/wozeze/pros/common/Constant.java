@@ -10,4 +10,8 @@ public class Constant {
 	public static final String TO_PREVIOUS = "previous";
 	public static final String TO_NEXT= "next";
 	public static final String TO_LAST= "last";
+	
+	/** baseAction use string tableName */
+	public static final String TABLE_NAME = "tableName";
+	
 }
