@@ -65,7 +65,6 @@ public class TargetCatelogAction extends BaseAction {
 	 * @return
 	 */
 	public String queryTargetCatelogs() {
-		setActionUrl("/pages/target_catelog/targetCatelogAction_queryTargetCatelogs.action");
 		targetCatelog = new TargetCatelog();
 		/** this function is used for pagination */
 		setPageValue(targetCatelog, Constant.T_TARGET_CATELOG);
