@@ -11,11 +11,14 @@ public class PageUtil {
 	 */
 	public static Page getPager(Integer currentPage, String pagerMethod, int totalRows) {
 		// 定义pager对象，用于传到页面
-		Page pager = new Page(totalRows);
+		
 		// 如果当前页号为空，表示为首次查询该页
 		// 如果不为空，则刷新pager对象，输入当前页号等信息
+		Page pager = null;
 		if (currentPage != null) {
-			pager.refresh(currentPage);
+			pager = new Page(totalRows, currentPage);
+		}else{
+			pager = new Page(totalRows);
 		}
 		// 获取当前执行的方法，首页，前一页，后一页，尾页。
 		if (pagerMethod != null) {

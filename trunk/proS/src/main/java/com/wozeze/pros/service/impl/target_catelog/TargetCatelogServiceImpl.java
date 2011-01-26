@@ -1,12 +1,9 @@
 package com.wozeze.pros.service.impl.target_catelog;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.wozeze.pros.common.Constant;
-import com.wozeze.pros.common.Page;
 import com.wozeze.pros.common.TypeValue;
 import com.wozeze.pros.dao.target_catelog.TargetCatelogMapper;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
@@ -25,7 +22,7 @@ public class TargetCatelogServiceImpl extends BaseService implements ITargetCate
 	}
 
 	@Override
-	public List<TargetCatelog> getTargetCatelogs(TargetCatelog catelog, Page page) {
+	public List<TargetCatelog> getTargetCatelogs(TargetCatelog catelog) {
 		return targetCatelogMapper.queryTargetCatelogs(catelog);
 	}
 	

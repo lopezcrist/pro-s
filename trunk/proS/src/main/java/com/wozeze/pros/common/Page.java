@@ -35,17 +35,32 @@ public class Page {
 		if (mod > 0) {
 			totalPages++;
 		}
+		if(totalPages != 1){
+			hasNextPage = true;
+		}
 		currentPage = 1;
 		startRow = 0;
 	}
 	
-
+	public Page(int _totalRows, int _currentPage){
+		totalRows = _totalRows;
+		totalPages = totalRows / pageSize;
+		int mod = totalRows % pageSize;
+		if (mod > 0) {
+			totalPages++;
+		}
+		currentPage = _currentPage;
+	}
+	
 	/**
 	 * 第一页
 	 */
 	public void first() {
 		currentPage = 1;
 		startRow = 0;
+		if(totalPages != 1){
+			hasNextPage = true;
+		}
 	}
 
 	/**
@@ -57,6 +72,7 @@ public class Page {
 		}
 		currentPage--;
 		startRow = (currentPage - 1) * pageSize;
+		setPreNextBoolean();
 	}
 
 	/**
@@ -67,6 +83,7 @@ public class Page {
 			currentPage++;
 		}
 		startRow = (currentPage - 1) * pageSize;
+		setPreNextBoolean();
 	}
 
 	/**
@@ -75,6 +92,7 @@ public class Page {
 	public void last() {
 		currentPage = totalPages;
 		startRow = (currentPage - 1) * pageSize;
+		setPreNextBoolean();
 	}
 
 	/**
@@ -85,6 +103,15 @@ public class Page {
 		currentPage = _currentPage;
 		if (currentPage > totalPages) {
 			last();
+		}
+	}
+	
+	private void setPreNextBoolean(){
+		if(currentPage != 1){
+			hasPreviousPage = true;
+		}
+		if(currentPage != totalPages){
+			hasNextPage = true;
 		}
 	}
 
@@ -133,11 +160,6 @@ public class Page {
 	}
 
 	public boolean isHasPreviousPage() {
-		if(currentPage == 1){
-			hasPreviousPage = false;
-		}else{
-			hasPreviousPage = true;
-		}
 		return hasPreviousPage;
 	}
 
@@ -146,11 +168,6 @@ public class Page {
 	}
 
 	public boolean isHasNextPage() {
-		if(currentPage == totalPages){
-			hasNextPage = false;
-		}else {
-			hasNextPage = true;
-		}
 		return hasNextPage;
 	}
 
