@@ -10,5 +10,8 @@ public interface ITargetCatelogService {
 	
 	public List<TargetCatelog> getTargetCatelogs(TargetCatelog catelog);
 	
+	public void removeTargetCatelog(TargetCatelog catelog);
+	
 	public int getTargetCatelogTotalCount();
+	
 }
