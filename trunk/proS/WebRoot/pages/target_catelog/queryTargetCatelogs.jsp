@@ -42,4 +42,5 @@
 <s:form id="operateForm">
 	<s:hidden id="itemId" name="targetCatelog.catelogId"/>
 </s:form>
+<s:set name="actionUrl" value="/pages/target_catelog/targetCatelogAction_queryTargetCatelogs.action"/>
 <%@ include file="../common/include_bottom.jsp"%>
