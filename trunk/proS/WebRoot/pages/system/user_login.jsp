@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
-<%
-	String path = request.getContextPath();
-%>
 <html>
 <head>
+<script type="text/javascript">
+	function focusText(){
+		document.getElementById('username').focus();
+	}
+</script>
 <style>
-
 body {
 	text-align: center;
 }
@@ -66,7 +66,7 @@ table {
 }
 </style>
 </head>
-<body>
+<body onload="focusText()">
 <div class="outerDiv">
 <div id="header">
 	这是标题
@@ -80,7 +80,7 @@ table {
 		</tr>
 		<tr>
 			<td class="tdLabel">用户名:</td>
-			<td><s:textfield cssClass="s_text" name="user.username" /></td>
+			<td><s:textfield id="username" cssClass="s_text" name="user.username" /></td>
 		</tr>
 		<tr>
 			<td class="tdLabel">密码:</td>
