@@ -21,12 +21,22 @@
 	<!-- enable autowire -->
 	<context:annotation-config />
 	
-	<context:component-scan base-package="com.wozeze.pros.service;com.wozeze.pros.service.impl.system;com.wozeze.pros.service.impl.target_catelog" /> 
 	<!-- enable transaction demarcation with annotations -->
 	<tx:annotation-driven />
+	
+	<context:component-scan 
+		base-package="com.wozeze.pros.service;
+					  com.wozeze.pros.service.impl.system;
+					  com.wozeze.pros.service.impl.target_catelog;
+					  com.wozeze.pros.service.impl.common;" 
+	/> 
 
 	<!-- scan for mappers and let them be autowired -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.wozeze.pros.dao.target_catelog;com.wozeze.pros.dao.system;com.wozeze.pros.dao.common" />
+		<property name="basePackage" 
+			value="com.wozeze.pros.dao.target_catelog;
+				   com.wozeze.pros.dao.system;
+				   com.wozeze.pros.dao.common"
+		/>
 	</bean>
 </beans>

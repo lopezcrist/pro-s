@@ -3,8 +3,6 @@ package com.wozeze.pros.service.impl.target_catelog;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.wozeze.pros.common.Constant;
-import com.wozeze.pros.common.TypeValue;
 import com.wozeze.pros.dao.target_catelog.TargetCatelogMapper;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
 import com.wozeze.pros.service.BaseService;
@@ -30,9 +28,9 @@ public class TargetCatelogServiceImpl extends BaseService implements ITargetCate
 	public void removeTargetCatelog(TargetCatelog catelog){
 		targetCatelogMapper.deleteTargetCatelog(catelog);
 	}
-	
+
 	@Override
-	public int getTargetCatelogTotalCount(){
-		return getTotalCount(new TypeValue("tableName", Constant.T_TARGET_CATELOG));
+	public TargetCatelog getTargetCatelog(TargetCatelog catelog) {
+		return targetCatelogMapper.queryTargetCatelogById(catelog);
 	}
 }

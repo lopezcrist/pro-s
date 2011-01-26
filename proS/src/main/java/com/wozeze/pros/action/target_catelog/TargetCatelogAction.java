@@ -4,8 +4,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import com.opensymphony.xwork2.ActionContext;
 import com.wozeze.pros.action.BaseAction;
-import com.wozeze.pros.common.Page;
-import com.wozeze.pros.common.PageUtil;
+import com.wozeze.pros.common.Constant;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
 import com.wozeze.pros.service.iface.target_catelog.ITargetCatelogService;
 
@@ -21,13 +20,15 @@ public class TargetCatelogAction extends BaseAction {
 	@Resource
 	ITargetCatelogService targetCatelogService;
 	
+	private TargetCatelog targetCatelog;
+	
 	/**
 	 * 跳转到目标分类添加页面
 	 * 
 	 * @return
 	 */
 	public String toTargetCatelogAddPage() {
-		return "targetCatelogAddPage";
+		return "updateTargetCatelogPage";
 	}
 
 	/**
@@ -55,8 +56,8 @@ public class TargetCatelogAction extends BaseAction {
 	 * @return
 	 */
 	public String toModifyTargetCatelogPage(){
-		
-		return "operateSuccess";
+		targetCatelog = targetCatelogService.getTargetCatelog(targetCatelog);
+		return "updateTargetCatelogPage";
 	}
 	
 	/**
@@ -65,23 +66,14 @@ public class TargetCatelogAction extends BaseAction {
 	 */
 	public String queryTargetCatelogs() {
 		setActionUrl("/pages/target_catelog/targetCatelogAction_queryTargetCatelogs.action");
-		if(page == null){
-			// from the menu link to this action method
-			int totalRows = targetCatelogService.getTargetCatelogTotalCount();
-			page = new Page(totalRows);
-		}else{
-			// from the page bottom pagination link to this action method 
-			page = PageUtil.getPager(page.getCurrentPage(), page.getNavigationPage(), page.getTotalRows());
-		}
 		targetCatelog = new TargetCatelog();
-		targetCatelog.setPage(page);
+		/** this function is used for pagination */
+		setPageValue(targetCatelog, Constant.T_TARGET_CATELOG);
 		List<TargetCatelog> catelogs = targetCatelogService.getTargetCatelogs(targetCatelog);
 		ActionContext.getContext().put("targetCatelogs", catelogs);
 		return "queryTargetCatelogs";
 	}
 	
-	private TargetCatelog targetCatelog;
-
 	public TargetCatelog getTargetCatelog() {
 		return targetCatelog;
 	}
