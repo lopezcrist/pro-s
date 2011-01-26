@@ -47,25 +47,21 @@ public class TargetCatelogAction extends ActionSupport {
 	 * @return
 	 */
 	public String queryTargetCatelogs() {
+		if(page == null){
+			// from the menu link to this action method
+			int totalRows = targetCatelogService.getTargetCatelogTotalCount();
+			page = new Page(totalRows);
+		}else{
+			// from the page bottom pagination link to this action method 
+			page = PageUtil.getPager(page.getCurrentPage(), page.getNavigationPage(), page.getTotalRows());
+		}
 		targetCatelog = new TargetCatelog();
 		targetCatelog.setPage(page);
-		page = PageUtil.getPager(page.getCurrentPage(), page.getNavigationPage(), page.getTotalRows());
-		targetCatelog.setPage(page);
-		List<TargetCatelog> catelogs = targetCatelogService.getTargetCatelogs(targetCatelog, page);
+		List<TargetCatelog> catelogs = targetCatelogService.getTargetCatelogs(targetCatelog);
 		ActionContext.getContext().put("targetCatelogs", catelogs);
 		return "queryTargetCatelogs";
 	}
 	
-	public String queryAllTargetCatelogs(){
-		int totalRows = targetCatelogService.getTargetCatelogTotalCount();
-		page = new Page(totalRows);
-		TargetCatelog targetCatelog = new TargetCatelog();
-		targetCatelog.setPage(page);
-		List<TargetCatelog> allCatelogs = targetCatelogService.getTargetCatelogs(targetCatelog, page);
-		ActionContext.getContext().put("targetCatelogs", allCatelogs);
-		return "queryTargetCatelogs";
-	}
-
 	private TargetCatelog targetCatelog;
 
 	public TargetCatelog getTargetCatelog() {
