@@ -45,10 +45,10 @@ public class UserAction extends ActionSupport{
 	public String login() {
 		User user1 = userService.getUserByUsernameAndPassword(user);
 		if(user1!=null){
-			ActionContext.getContext().getSession().put("user", user1.getUsername());
+			ActionContext.getContext().getSession().put("user", user1.getName());
 			return "login_success";
 		}else{
-			this.addFieldError("user.username", "用户名或密码错误");
+			this.addFieldError("user.name", "用户名或密码错误");
 			return "login_failure";
 		}
 	}

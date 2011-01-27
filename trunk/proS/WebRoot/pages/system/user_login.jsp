@@ -80,7 +80,7 @@ table {
 		</tr>
 		<tr>
 			<td class="tdLabel">用户名:</td>
-			<td><s:textfield id="username" cssClass="s_text" name="user.username" /></td>
+			<td><s:textfield id="username" cssClass="s_text" name="user.name" /></td>
 		</tr>
 		<tr>
 			<td class="tdLabel">密码:</td>

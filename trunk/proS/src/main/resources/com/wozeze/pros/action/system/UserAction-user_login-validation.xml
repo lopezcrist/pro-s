@@ -3,7 +3,7 @@
  "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
  "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
 <validators>
-	<field name="user.username">
+	<field name="user.name">
 		<!-- 验证字符串不能为空 -->
 		<field-validator type="requiredstring">
 			<!-- 去空格 -->
@@ -33,13 +33,4 @@
 		</field-validator>
 	</field>
 	
-	<!--
-		<field name="user.age"> <field-validator type="int"> <param
-		name="min">1</param> <param name="max">150</param>
-		<message>年龄应在1到150之间</message> </field-validator> </field> 验证字符串为日期类型
-		<field name="user.birthday"> <field-validator type="date"> <param
-		name="min">1900-01-01</param> <param name="max">2008-10-16</param>
-		<message>出生日期应在1900-01-01到2008-10-16</message> </field-validator>
-		</field>
-	-->
 </validators>

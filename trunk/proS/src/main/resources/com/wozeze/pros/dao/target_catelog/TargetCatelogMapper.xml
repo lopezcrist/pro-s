@@ -11,13 +11,13 @@
 		INSERT INTO
 		TE_TARGET_CATELOG (ID, CATELOG_NAME, DETAIL)
 		VALUES
-		(#{catelogId}, #{catelogName}, #{catelogDetail})
+		(#{id}, #{name}, #{catelogDetail})
 	</insert>
 	
 	<select id="queryTargetCatelogs" parameterType="queryParam" resultType="targetCatelog">
 		<![CDATA[
-			select t.id     AS catelogId,
-       		t.catelog_name 	AS catelogName,
+			select t.id     AS id,
+       		t.catelog_name 	AS name,
       		(CASE WHEN LENGTH(t.detail) >= 15 then substr(t.detail,1,15)||'...' else t.detail end)  AS catelogDetail
   			from te_target_catelog t
  			where rowid in
@@ -31,14 +31,14 @@
 	</select>
 	
 	<delete id="deleteTargetCatelog" parameterType="targetCatelog">
-		DELETE FROM TE_TARGET_CATELOG T WHERE T.ID = #{catelogId}
+		DELETE FROM TE_TARGET_CATELOG T WHERE T.ID = #{id}
 	</delete>
 	
 	<select id="queryTargetCatelogById" parameterType="targetCatelog" resultType="targetCatelog">
-			select t.id     AS catelogId,
-       		t.catelog_name 	AS catelogName,
+			select t.id     AS id,
+       		t.catelog_name 	AS name,
        		t.detail AS catelogDetail
-       		from te_target_catelog t where t.id = #{catelogId}
+       		from te_target_catelog t where t.id = #{id}
 	</select>
 	
 </mapper>
