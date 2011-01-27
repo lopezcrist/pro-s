@@ -1,6 +1,9 @@
 package com.wozeze.pros.domain.system;
 
-public class User {
+import com.wozeze.pros.domain.BaseDomain;
+
+public class User extends BaseDomain{
+	
 	private String userId;
 	private String username;
 	private String password;
