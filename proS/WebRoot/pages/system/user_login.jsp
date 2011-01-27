@@ -49,6 +49,15 @@ input[type='text'] {
 	border-bottom: 1px solid #000000;
 }
 
+#message {
+	margin-bottom:2px;
+	width: 300px;
+	text-align: center;
+	font-weight: bold;
+	color: red;
+	font-size: 14px;
+}
+
 table {
 	text-align: center;
 	width: 300x;
@@ -76,6 +85,11 @@ table {
 		<tr>
 			<td colspan="2">
 				<s:fielderror cssClass="errorStyle"></s:fielderror>
+			</td>
+		</tr>
+		<tr>
+			<td id="message" colspan="2">
+				<s:property value="#request.register_success"/>
 			</td>
 		</tr>
 		<tr>

@@ -34,6 +34,7 @@ public class UserAction extends ActionSupport{
 	 */
 	public String register() {
 		userService.addUser(user);
+		ActionContext.getContext().put("register_success", "注册成功，请登陆");
 		return "register_success";
 	}
 	
