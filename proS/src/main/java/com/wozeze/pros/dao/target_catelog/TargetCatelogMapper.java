@@ -1,7 +1,7 @@
 package com.wozeze.pros.dao.target_catelog;
 
 import java.util.List;
-
+import com.wozeze.pros.domain.QueryParam;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
 
 public interface TargetCatelogMapper {
@@ -17,7 +17,7 @@ public interface TargetCatelogMapper {
 	 * @param targetCatelog
 	 * @return
 	 */
-	public List<TargetCatelog> queryTargetCatelogs(TargetCatelog targetCatelog);
+	public List<TargetCatelog> queryTargetCatelogs(QueryParam<TargetCatelog> queryParam);
 	
 	/**
 	 * delete a targetCatelog by Id

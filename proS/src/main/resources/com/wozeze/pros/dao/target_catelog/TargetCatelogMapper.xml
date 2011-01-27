@@ -14,7 +14,7 @@
 		(#{catelogId}, #{catelogName}, #{catelogDetail})
 	</insert>
 	
-	<select id="queryTargetCatelogs" parameterType="targetCatelog" resultType="targetCatelog">
+	<select id="queryTargetCatelogs" parameterType="queryParam" resultType="targetCatelog">
 		<![CDATA[
 			select t.id     AS catelogId,
        		t.catelog_name 	AS catelogName,

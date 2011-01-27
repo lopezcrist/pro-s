@@ -1,10 +1,10 @@
 package com.wozeze.pros.action.target_catelog;
 
-import java.util.List;
 import javax.annotation.Resource;
 import com.opensymphony.xwork2.ActionContext;
 import com.wozeze.pros.action.BaseAction;
-import com.wozeze.pros.common.Constant;
+import com.wozeze.pros.domain.QueryParam;
+import com.wozeze.pros.domain.ResultObject;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
 import com.wozeze.pros.service.iface.target_catelog.ITargetCatelogService;
 
@@ -18,7 +18,7 @@ public class TargetCatelogAction extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	
 	@Resource
-	ITargetCatelogService targetCatelogService;
+	ITargetCatelogService<TargetCatelog> targetCatelogService;
 	
 	private TargetCatelog targetCatelog;
 	
@@ -65,11 +65,10 @@ public class TargetCatelogAction extends BaseAction {
 	 * @return
 	 */
 	public String queryTargetCatelogs() {
-		targetCatelog = new TargetCatelog();
-		/** this function is used for pagination */
-		setPageValue(targetCatelog, Constant.T_TARGET_CATELOG);
-		List<TargetCatelog> catelogs = targetCatelogService.getTargetCatelogs(targetCatelog);
-		ActionContext.getContext().put("targetCatelogs", catelogs);
+		QueryParam<TargetCatelog> queryParam = new QueryParam<TargetCatelog>(page, targetCatelog);
+		ResultObject<TargetCatelog> resultObject = targetCatelogService.getTargetCatelogs(queryParam);
+		page = resultObject.getPage();
+		ActionContext.getContext().put("targetCatelogs", resultObject.getResults());
 		return "queryTargetCatelogs";
 	}
 	
