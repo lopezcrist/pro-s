@@ -29,10 +29,10 @@
 		<tr>
 			<td><s:property value="#status.index+1" /></td>
 			<td>
-				<img id="deleteImg" src="../../image/delete_button.png" onclick="deleteItem('<s:property value="catelogId" />')"></img>
-				<img id="updateImg" src="../../image/update_button.png" onclick="updateItem('<s:property value="catelogId" />')"></img>
+				<img id="deleteImg" src="../../image/delete_button.png" onclick="deleteItem('<s:property value="id" />')"></img>
+				<img id="updateImg" src="../../image/update_button.png" onclick="updateItem('<s:property value="id" />')"></img>
 			</td>
-			<td><s:property value="catelogName" /></td>
+			<td><s:property value="name" /></td>
 			<td><s:property value="catelogDetail" /></td>
 		</tr>
 	</s:iterator>
@@ -40,7 +40,7 @@
 <%@ include file="../common/pagination.jsp"%>
 </div>
 <s:form id="operateForm">
-	<s:hidden id="itemId" name="targetCatelog.catelogId"/>
+	<s:hidden id="itemId" name="targetCatelog.id"/>
 </s:form>
 <s:set name="actionUrl" value="/pages/target_catelog/targetCatelogAction_queryTargetCatelogs.action"/>
 <%@ include file="../common/include_bottom.jsp"%>

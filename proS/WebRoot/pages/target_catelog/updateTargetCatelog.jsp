@@ -9,7 +9,7 @@
 			</tr>
 			<tr>
 				<td id="td_left">目标类型名称:</td>
-				<td id="td_left"><s:textfield name="targetCatelog.catelogName" /></td>
+				<td id="td_left"><s:textfield name="targetCatelog.name" /></td>
 			</tr>
 			<tr>
 				<td id="td_left">目标类型详情:</td>

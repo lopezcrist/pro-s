@@ -4,17 +4,17 @@
 
 <mapper namespace="com.wozeze.pros.dao.system.UserMapper">
   <select id="queryUserByUserNameAndPassword" parameterType="user" resultType="user">
-    SELECT *          
+    SELECT USERNAME as name          
     FROM TE_USER
-    WHERE USERNAME = #{username}
+    WHERE USERNAME = #{name}
     AND PASSWORD = #{password}
   </select>
 
   <insert id="insertUser" parameterType="user">
-  	<selectKey keyProperty="userId" resultType="string" order="BEFORE">
+  	<selectKey keyProperty="id" resultType="string" order="BEFORE">
          SELECT sys_guid() FROM dual 
     </selectKey>
   	INSERT INTO TE_USER (ID, USERNAME, PASSWORD, E_MAIL)
-  	VALUES (#{userId}, #{username}, #{password}, #{email})
+  	VALUES (#{id}, #{name}, #{password}, #{email})
   </insert>
 </mapper>
