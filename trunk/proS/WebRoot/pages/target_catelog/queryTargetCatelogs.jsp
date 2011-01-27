@@ -22,7 +22,7 @@
 		<td>序号</td>
 		<td>操作</td>
 		<td>目标分类名称</td>
-		<td>目标分类详情[<s:property value="page.totalRows" />]</td>
+		<td>目标分类详情</td>
 	</tr>
 	
 	<s:iterator value="#request.targetCatelogs" status="status">
