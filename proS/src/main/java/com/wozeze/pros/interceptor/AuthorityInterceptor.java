@@ -21,7 +21,7 @@ public class AuthorityInterceptor extends AbstractInterceptor {
 			return invocation.invoke();
 		}
 		// 没有登陆，将服务器提示设置成一个HttpServletRequest属性
-		ctx.put("tip", "您还没有登录，请登陆系统");
+		ctx.put("message", "您还没有登录，请登陆系统");
 		return Action.LOGIN;
 	}
 }
