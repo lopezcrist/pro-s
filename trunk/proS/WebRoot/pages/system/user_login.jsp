@@ -89,7 +89,7 @@ table {
 		</tr>
 		<tr>
 			<td id="message" colspan="2">
-				<s:property value="#request.message"/>
+				<s:property value="#request.success_content"/>
 			</td>
 		</tr>
 		<tr>

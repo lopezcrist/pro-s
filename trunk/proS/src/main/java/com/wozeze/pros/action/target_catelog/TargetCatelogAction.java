@@ -1,9 +1,11 @@
 package com.wozeze.pros.action.target_catelog;
 
 import javax.annotation.Resource;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.wozeze.pros.action.BaseAction;
 import com.wozeze.pros.common.Constant;
+import com.wozeze.pros.common.Message;
 import com.wozeze.pros.domain.QueryParam;
 import com.wozeze.pros.domain.ResultObject;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
@@ -27,7 +29,7 @@ public class TargetCatelogAction extends BaseAction {
 	private String pageType;
 
 	/**
-	 * 跳转到目标分类添加页面
+	 * to add targetCatelog page
 	 * 
 	 * @return
 	 */
@@ -42,7 +44,7 @@ public class TargetCatelogAction extends BaseAction {
 	 */
 	public String addTargetCatelog() {
 		targetCatelogService.addTargetCatelog(targetCatelog);
-		setSuccuessMsg(getText(Constant.ADD_TARGETCATELOG_SUCCESS));
+		setSuccuessMsg(getText(Message.ADD_TARGETCATELOG_SUCCESS));
 		return Constant.OPERATOR_SUCCESS;
 	}
 	
@@ -52,7 +54,7 @@ public class TargetCatelogAction extends BaseAction {
 	 */
 	public String removeTargetCatelog() {
 		targetCatelogService.removeTargetCatelog(targetCatelog);
-		setSuccuessMsg("删除目标分类成功");
+		setSuccuessMsg(getText(Message.REMOVE_TARGETCATELOG_SUCCESS));
 		return Constant.OPERATOR_SUCCESS;
 	}
 	
@@ -66,9 +68,13 @@ public class TargetCatelogAction extends BaseAction {
 		return Constant.UPDATE_TARGET_CATELOG_PAGE;
 	}
 	
+	/**
+	 * modify the targetCatelog
+	 * @return
+	 */
 	public String modifyTargetCatelog(){
 		targetCatelogService.modifyTargetCatelog(targetCatelog);
-		setSuccuessMsg("修改目标分类成功");
+		setSuccuessMsg(getText(Message.MODIFY_TARGETCATELOG_SUCCESS));
 		return Constant.OPERATOR_SUCCESS;
 	}
 	
