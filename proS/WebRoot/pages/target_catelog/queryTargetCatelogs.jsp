@@ -1,8 +1,4 @@
 <%@ include file="../common/include_top.jsp"%>
-<style>
-</style>
-<link rel="stylesheet" href="../../styles/jquery/jquery-ui.css" type="text/css"/>
-<script type="text/javascript" src="../../scripts/jquery/jquery-ui.js"></script>
 <script type="text/javascript">
 	$(function(){
 		// Dialog			

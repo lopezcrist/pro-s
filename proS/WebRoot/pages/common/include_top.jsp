@@ -1,18 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
+<% String path = request.getContextPath(); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="../../styles/pros.css" type="text/css"/>
-<script type="text/javascript" src="../../scripts/pros.js"></script>
-<script type="text/javascript" src="../../scripts/jquery/jquery.js"></script>
+<link rel="stylesheet" href="<%=path %>/styles/pros.css" type="text/css"/>
+<link rel="stylesheet" href="<%=path %>/styles/jquery/jquery-ui.css" type="text/css"/>
+<script type="text/javascript" src="<%=path %>/scripts/pros.js"></script>
+<script type="text/javascript" src="<%=path %>/scripts/jquery/jquery.js"></script>
+<script type="text/javascript" src="<%=path %>/scripts/jquery/jquery-ui.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>首页</title>
 </head>
 <body>
 <div id="center">
 <div id="top">
+	<s:property value="#session.user"/>
 	<s:a action="user" method="logout" namespace="/pages/system">退出</s:a>
 </div>
 <div id="header"><FONT SIZE="3" COLOR="#FFFF33">实现你的目标</FONT></div>

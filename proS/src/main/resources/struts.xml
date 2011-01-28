@@ -15,28 +15,54 @@
 	<constant name="struts.ui.templateDir" value="template" />
 	<constant name="struts.ui.templateSuffix" value="ftl" />
 	
-	<package name="authority" extends="struts-default">
+	<package name="base" extends="struts-default">
 		<interceptors>
-			<!--定义一个名为authority的拦截器 -->
-			<interceptor class="com.wozeze.pros.interceptor.AuthorityInterceptor"
-				name="authority" />
-			<!--定义一个包含权限检查的拦截器栈 -->
-			<interceptor-stack name="mydefault">
-				<!--配置内建默认拦截器 -->
-				<interceptor-ref name="defaultStack" />
-				<!--配置自定义的拦截器 -->
-				<interceptor-ref name="authority" />
-			</interceptor-stack>
+			<interceptor name="exceptionInterceptor" class="com.wozeze.pros.interceptor.ExceptionInterceptor" />
 		</interceptors>
 
 		<default-interceptor-ref name="mydefault" />
 		<!--定义全局Result -->
 		<global-results>
 			<result name="login">/pages/system/user_login.jsp</result>
+			<result name="error">/pages/common/error.jsp</result>
 		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="com.wozeze.pros.exception.BusinessException"></exception-mapping>
+		</global-exception-mappings>
 	</package>
 	
-	<package name="default" namespace="/" extends="struts-default">
+	
+	<package name="authority" extends="base">
+		<interceptors>
+			<interceptor name="authority" class="com.wozeze.pros.interceptor.AuthorityInterceptor" />
+			<interceptor-stack name="mydefault">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="authority" />
+				<interceptor-ref name="exceptionInterceptor" />
+				<!-- 这个拦截器用来在控制台打印错误日志, 仅在开发时使用  -->
+				<interceptor-ref name="exception">  
+                    <param name="logEnabled">true</param>  
+                    <param name="logLevel">  
+                        warn</param>  
+                </interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+	</package>
+	
+	<package name="default" namespace="/" extends="base">
+		<interceptors>
+			<interceptor-stack name="mydefault">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="exceptionInterceptor" />
+				<!-- 这个拦截器用来在控制台打印错误日志 , 仅在开发时使用  -->
+				<interceptor-ref name="exception">  
+                    <param name="logEnabled">true</param>  
+                    <param name="logLevel">  
+                        warn</param>  
+                </interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
 		<action name="index">
 			<result>/pages/system/user_login.jsp</result>
 		</action>
