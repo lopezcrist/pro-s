@@ -14,4 +14,6 @@ public interface ITargetCatelogService<T> {
 	
 	public TargetCatelog getTargetCatelog(TargetCatelog catelog);
 	
+	public void modifyTargetCatelog(TargetCatelog catelog);
+	
 }

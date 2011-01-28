@@ -3,6 +3,7 @@ package com.wozeze.pros.action.target_catelog;
 import javax.annotation.Resource;
 import com.opensymphony.xwork2.ActionContext;
 import com.wozeze.pros.action.BaseAction;
+import com.wozeze.pros.common.Constant;
 import com.wozeze.pros.domain.QueryParam;
 import com.wozeze.pros.domain.ResultObject;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
@@ -22,13 +23,17 @@ public class TargetCatelogAction extends BaseAction {
 	
 	private TargetCatelog targetCatelog;
 	
+	/** add: to add page; update: to update page */
+	private String pageType;
+
 	/**
 	 * 跳转到目标分类添加页面
 	 * 
 	 * @return
 	 */
 	public String toTargetCatelogAddPage() {
-		return "updateTargetCatelogPage";
+		setPageType(Constant.PAGE_TYPE_ADD);
+		return Constant.UPDATE_TARGET_CATELOG_PAGE;
 	}
 
 	/**
@@ -37,8 +42,8 @@ public class TargetCatelogAction extends BaseAction {
 	 */
 	public String addTargetCatelog() {
 		targetCatelogService.addTargetCatelog(targetCatelog);
-		ActionContext.getContext().put("success_content", "添加目标分类成功");
-		return "operateSuccess";
+		setSuccuessMsg(getText(Constant.ADD_TARGETCATELOG_SUCCESS));
+		return Constant.OPERATOR_SUCCESS;
 	}
 	
 	/**
@@ -47,8 +52,8 @@ public class TargetCatelogAction extends BaseAction {
 	 */
 	public String removeTargetCatelog() {
 		targetCatelogService.removeTargetCatelog(targetCatelog);
-		ActionContext.getContext().put("success_content", "删除目标分类成功");
-		return "operateSuccess";
+		setSuccuessMsg("删除目标分类成功");
+		return Constant.OPERATOR_SUCCESS;
 	}
 	
 	/**
@@ -56,8 +61,15 @@ public class TargetCatelogAction extends BaseAction {
 	 * @return
 	 */
 	public String toModifyTargetCatelogPage(){
+		setPageType(Constant.PAGE_TYPE_UPDATE);
 		targetCatelog = targetCatelogService.getTargetCatelog(targetCatelog);
-		return "updateTargetCatelogPage";
+		return Constant.UPDATE_TARGET_CATELOG_PAGE;
+	}
+	
+	public String modifyTargetCatelog(){
+		targetCatelogService.modifyTargetCatelog(targetCatelog);
+		setSuccuessMsg("修改目标分类成功");
+		return Constant.OPERATOR_SUCCESS;
 	}
 	
 	/**
@@ -69,7 +81,7 @@ public class TargetCatelogAction extends BaseAction {
 		ResultObject<TargetCatelog> resultObject = targetCatelogService.getTargetCatelogs(queryParam);
 		page = resultObject.getPage();
 		ActionContext.getContext().put("targetCatelogs", resultObject.getResults());
-		return "queryTargetCatelogs";
+		return Constant.QUERY_TARGET_CATELOGS;
 	}
 	
 	public TargetCatelog getTargetCatelog() {
@@ -78,6 +90,14 @@ public class TargetCatelogAction extends BaseAction {
 
 	public void setTargetCatelog(TargetCatelog targetCatelog) {
 		this.targetCatelog = targetCatelog;
+	}
+
+	public String getPageType() {
+		return pageType;
+	}
+
+	public void setPageType(String pageType) {
+		this.pageType = pageType;
 	}
 
 }

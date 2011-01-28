@@ -1,20 +1,43 @@
 <%@ include file="../common/include_top.jsp"%>
+<style>
+</style>
+<link rel="stylesheet" href="../../styles/jquery/jquery-ui.css" type="text/css"/>
+<script type="text/javascript" src="../../scripts/jquery/jquery-ui.js"></script>
 <script type="text/javascript">
-	$("#deleteImg").click(
-		function deleteItem(itemIdValue){
-			$("#itemId").attr("value", itemIdValue);
-			$("#operateForm").attr("action", "<%=request.getContextPath()%>/pages/target_catelog/targetCatelogAction_removeTargetCatelog.action");			
-			$("#operateForm").submit();
-		}
-	)
-	
-	$("#updateImg").click(
-		function updateItem(itemIdValue){
-			$("#itemId").attr("value", itemIdValue);
-			$("#operateForm").attr("action", "<%=request.getContextPath()%>/pages/target_catelog/targetCatelogAction_toModifyTargetCatelogPage.action");			
-			$("#operateForm").submit();
-		}
-	)
+	$(function(){
+		// Dialog			
+		$('#dialog').dialog({
+			autoOpen: false,
+			width: 300,
+			buttons: {
+				"确 定": function() { 
+					$("#operateForm").submit();
+					$(this).dialog("close"); 
+				}, 
+				"取 消": function() { 
+					$(this).dialog("close"); 
+				} 
+			}
+		});
+
+		$("#updateImg").click(
+			function(){
+				$("#itemId").attr("value", $(this).attr('name'));
+				$("#operateForm").attr("action", "<%=request.getContextPath()%>/pages/target_catelog/targetCatelogAction_toModifyTargetCatelogPage.action");
+				$("#operateForm").submit();
+			}
+		)
+		
+		$("#deleteImg").click(
+			function(){
+				$('#dialog').dialog('open');
+				$("#itemId").attr("value", $(this).attr('name'));
+				$("#operateForm").attr("action", "<%=request.getContextPath()%>/pages/target_catelog/targetCatelogAction_removeTargetCatelog.action");
+				return false;
+			}
+		)
+		
+	});
 </script>
 <div id="content">
 <table id="table_center">
@@ -24,23 +47,25 @@
 		<td>目标分类名称</td>
 		<td>目标分类详情</td>
 	</tr>
-	
+
 	<s:iterator value="#request.targetCatelogs" status="status">
 		<tr>
 			<td><s:property value="#status.index+1" /></td>
-			<td>
-				<img id="deleteImg" src="../../image/delete_button.png" onclick="deleteItem('<s:property value="id" />')"></img>
-				<img id="updateImg" src="../../image/update_button.png" onclick="updateItem('<s:property value="id" />')"></img>
+			<td width="100px">
+				<img name='<s:property value="id" />' id="deleteImg" class="imgClass" src="../../image/delete_button.png"></img> 
+				<img name='<s:property value="id" />' id="updateImg" class="imgClass" src="../../image/update_button.png"></img>
 			</td>
 			<td><s:property value="name" /></td>
 			<td><s:property value="catelogDetail" /></td>
 		</tr>
 	</s:iterator>
 </table>
-<%@ include file="../common/pagination.jsp"%>
-</div>
+<%@ include file="../common/pagination.jsp"%></div>
 <s:form id="operateForm">
-	<s:hidden id="itemId" name="targetCatelog.id"/>
+	<s:hidden id="itemId" name="targetCatelog.id" />
 </s:form>
-<s:set name="actionUrl" value="/pages/target_catelog/targetCatelogAction_queryTargetCatelogs.action"/>
+<s:set name="actionUrl" value="/pages/target_catelog/targetCatelogAction_queryTargetCatelogs.action" />
+<div id="dialog" title="确定">
+	<p>确定删除记录</p>
+</div>
 <%@ include file="../common/include_bottom.jsp"%>

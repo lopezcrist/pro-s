@@ -40,4 +40,9 @@ public class TargetCatelogServiceImpl extends BaseService<TargetCatelog> impleme
 	public TargetCatelog getTargetCatelog(TargetCatelog catelog) {
 		return targetCatelogMapper.queryTargetCatelogById(catelog);
 	}
+
+	@Override
+	public void modifyTargetCatelog(TargetCatelog catelog) {
+		targetCatelogMapper.updateTargetCatelog(catelog);
+	}
 }

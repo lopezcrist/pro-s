@@ -1,6 +1,21 @@
 <%@ include file="../common/include_top.jsp"%>
+<script type="text/javascript">
+<!--
+	$(function(){
+		$("#submitButton").click(
+			function(){
+				if('<s:property value="pageType"/>' == "add"){
+					$("#updateForm").attr("action", "<%=request.getContextPath()%>/pages/target_catelog/targetCatelogAction_addTargetCatelog");
+				}else{
+					$("#updateForm").attr("action", "<%=request.getContextPath()%>/pages/target_catelog/targetCatelogAction_modifyTargetCatelog");
+				}
+			}
+		)
+	})
+//-->
+</script>
 <div id="content">
-	<s:form action="targetCatelogAction_addTargetCatelog" namespace="/pages/target_catelog" validate="true">
+	<s:form id="updateForm" validate="true">
 		<table id="table_center">
 			<tr>
 				<td colspan="2">
@@ -17,10 +32,11 @@
 			</tr>
 			<tr>
 				<td colspan="2" id="td_center">
-					<s:submit align="left" type="image" src="/proS/image/ok_button.png" />
+					<s:submit id="submitButton" align="left" type="image" src="/proS/image/ok_button.png" />
 				</td>
 			</tr>
 		</table>
+		<s:hidden name="targetCatelog.id" />
 	</s:form>
 </div>
 <%@ include file="../common/include_bottom.jsp"%>

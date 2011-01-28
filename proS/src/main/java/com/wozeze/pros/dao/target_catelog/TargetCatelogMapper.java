@@ -30,4 +30,10 @@ public interface TargetCatelogMapper {
 	 * @param catelog
 	 */
 	public TargetCatelog queryTargetCatelogById(TargetCatelog catelog);
+	
+	/**
+	 * update the targetCatelog
+	 * @param catelog
+	 */
+	public void updateTargetCatelog(TargetCatelog catelog);
 }

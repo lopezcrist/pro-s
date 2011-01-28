@@ -9,6 +9,7 @@
 	<include file="com/wozeze/pros/struts-module/others.xml"></include>
 
 	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.custom.i18n.resources" value="messageResource"/>
 	<constant name="struts.devMode" value="false" />
 	<constant name="struts.ui.theme" value="simple" />
 	<constant name="struts.ui.templateDir" value="template" />

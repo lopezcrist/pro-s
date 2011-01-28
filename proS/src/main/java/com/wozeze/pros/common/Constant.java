@@ -5,7 +5,7 @@ public class Constant {
 	/**  target catelog table name*/
 	public static final String T_TARGET_CATELOG = "TE_TARGET_CATELOG";
 	
-	/** page navigation */
+	/** pagination navigation */
 	public static final String TO_FIRST = "first";
 	public static final String TO_PREVIOUS = "previous";
 	public static final String TO_NEXT= "next";
@@ -14,4 +14,15 @@ public class Constant {
 	/** baseAction use string tableName */
 	public static final String TABLE_NAME = "tableName";
 	
+	/** page navigation*/
+	public static final String OPERATOR_SUCCESS = "operateSuccess";
+	public static final String UPDATE_TARGET_CATELOG_PAGE = "updateTargetCatelogPage";
+	public static final String QUERY_TARGET_CATELOGS = "queryTargetCatelogs";
+	
+	public static final String PAGE_TYPE_ADD = "add";
+	public static final String PAGE_TYPE_UPDATE = "update";
+	
+	public static final String SUCCESS_CONTENT = "success_content";
+	
+	public static final String ADD_TARGETCATELOG_SUCCESS = "add.targetcatelog.success";
 }
