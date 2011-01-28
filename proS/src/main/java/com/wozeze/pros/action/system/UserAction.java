@@ -1,21 +1,24 @@
 package com.wozeze.pros.action.system;
 
 import javax.annotation.Resource;
-
 import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
+import com.wozeze.pros.common.Message;
+import com.wozeze.pros.action.BaseAction;
+import com.wozeze.pros.common.Constant;
 import com.wozeze.pros.domain.system.User;
 import com.wozeze.pros.service.iface.system.IUserService;
 
-public class UserAction extends ActionSupport{
+public class UserAction extends BaseAction{
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Resource
 	IUserService userService;
 	
+	private User user;
+	
 	public String toIndexPage() {
-		return "index";
+		return Constant.INDEX;
 	}
 	
 	/**
@@ -24,7 +27,7 @@ public class UserAction extends ActionSupport{
 	 * @throws Exception
 	 */
 	public String toRegisterPage() {
-		return "registerPage";
+		return Constant.REGISTER_PAGE;
 	}
 	
 	/**
@@ -34,8 +37,8 @@ public class UserAction extends ActionSupport{
 	 */
 	public String register() {
 		userService.addUser(user);
-		ActionContext.getContext().put("register_success", "注册成功，请登陆");
-		return "register_success";
+		setSuccuessMsg(getText(Message.REGISTER_USER_SUCCESS));
+		return Constant.REGISTER_SUCCESS;
 	}
 	
 	/**
@@ -46,20 +49,18 @@ public class UserAction extends ActionSupport{
 	public String login() {
 		User user1 = userService.getUserByUsernameAndPassword(user);
 		if(user1!=null){
-			ActionContext.getContext().getSession().put("user", user1.getName());
-			return "login_success";
+			ActionContext.getContext().getSession().put(Constant.USER, user1.getName());
+			return Constant.LOGIN_SUCCESS;
 		}else{
-			this.addFieldError("user.name", "用户名或密码错误");
-			return "login_failure";
+			this.addFieldError(Constant.USER_NAME, Message.USER_NAME_PASSWORD_WRONG);
+			return Constant.LOGIN_FAILURE;
 		}
 	}
 	
 	public String logout(){
-		ActionContext.getContext().getSession().remove("user");
-		return "logout_success";
+		ActionContext.getContext().getSession().remove(Constant.USER);
+		return Constant.LOGOUT_SUCCESS;
 	}
-
-	private User user;
 
 	public User getUser() {
 		return user;
