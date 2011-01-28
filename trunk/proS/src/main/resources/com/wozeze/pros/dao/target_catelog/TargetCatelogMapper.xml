@@ -5,7 +5,7 @@
 <mapper namespace="com.wozeze.pros.dao.target_catelog.TargetCatelogMapper">
 
 	<insert id="insertTargetCatelog" parameterType="targetCatelog">
-		<selectKey keyProperty="catelogId" resultType="string" order="BEFORE">
+		<selectKey keyProperty="id" resultType="string" order="BEFORE">
 			SELECT sys_guid() FROM dual 
     	</selectKey>
 		INSERT INTO
@@ -40,5 +40,12 @@
        		t.detail AS catelogDetail
        		from te_target_catelog t where t.id = #{id}
 	</select>
+	
+	<update id="updateTargetCatelog" parameterType="targetCatelog">
+		update te_target_catelog t
+		set t.catelog_name = #{name},
+			t.detail = #{catelogDetail}
+		where t.id = #{id}
+	</update>
 	
 </mapper>

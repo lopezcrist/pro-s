@@ -1,14 +1,7 @@
 body {
 	text-align: center;
-	font-family: "ËÎÌו";
-	font-size: 15px;
+	font: 62.5% "ËÎÌו", sans-serif;
 	font-style: normal;
-}
-
-input[type='text'] {
-	border: solid 1px silver;
-	background-color: #e6f0f9;
-	width: 180px;
 }
 
 .errorStyle {
@@ -51,6 +44,7 @@ input[type='text'] {
 }
 
 #menu {
+	font-size:14px;
 	margin: 12px 20px 5px 20px;
 	background: red;
 	width: 760px;
@@ -73,6 +67,7 @@ input[type='text'] {
 }
 
 #table_center {
+	font-size:11px;
 	margin-top: 30px;
 	MARGIN-RIGHT: auto;
 	MARGIN-LEFT: auto;
@@ -86,6 +81,7 @@ input[type='text'] {
 }
 
 #table_header {
+	font-size:12px;
 	height: 30px;
 }
 
@@ -114,5 +110,9 @@ input[type='text'] {
 }
 
 #pagination {
+	font-size: 12px;
+}
 
+.imgClass {
+	cursor: pointer;
 }
