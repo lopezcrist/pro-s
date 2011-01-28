@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
-<%
-	String path = request.getContextPath();
-%>
 <html>
 <head>
 <style>
