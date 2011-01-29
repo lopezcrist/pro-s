@@ -32,11 +32,17 @@
 			</tr>
 			<tr>
 				<td colspan="2" id="td_center">
-					<s:submit id="submitButton" align="left" type="image" src="/proS/image/ok_button.png" />
+					<s:if test="pageType eq 'add'">
+						<s:submit id="submitButton" align="left" type="image" src="/proS/image/add_button.png" />
+					</s:if>
+					<s:else>
+						<s:submit id="submitButton" align="left" type="image" src="/proS/image/update_button.png" />
+					</s:else>
 				</td>
 			</tr>
 		</table>
 		<s:hidden name="targetCatelog.id" />
+		<s:hidden name="pageType" />
 	</s:form>
 </div>
 <%@ include file="../common/include_bottom.jsp"%>

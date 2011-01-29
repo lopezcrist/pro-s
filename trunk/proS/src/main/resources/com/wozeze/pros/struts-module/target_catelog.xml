@@ -7,7 +7,7 @@
 	<package name="target_catelog" namespace="/pages/target_catelog" extends="authority">
 		<action name="targetCatelogAction_*" class="com.wozeze.pros.action.target_catelog.TargetCatelogAction" method="{1}">
 			<result name="updateTargetCatelogPage">/pages/target_catelog/updateTargetCatelog.jsp</result>
-			<result name="input">/pages/target_catelog/{1}.jsp</result>
+			<result name="input">/pages/target_catelog/updateTargetCatelog.jsp</result>
 			<result name="operateSuccess">/pages/common/common_success.jsp</result>
 			<result name="queryTargetCatelogs">/pages/target_catelog/queryTargetCatelogs.jsp</result>
 		</action>

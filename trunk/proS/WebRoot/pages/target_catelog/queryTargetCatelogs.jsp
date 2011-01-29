@@ -16,7 +16,7 @@
 			}
 		});
 
-		$("#updateImg").click(
+		$("img[id^=updateImg]").click(
 			function(){
 				$("#itemId").attr("value", $(this).attr('name'));
 				$("#operateForm").attr("action", "<%=request.getContextPath()%>/pages/target_catelog/targetCatelogAction_toModifyTargetCatelogPage.action");
@@ -24,9 +24,9 @@
 			}
 		)
 		
-		$("#deleteImg").click(
+		$("img[id^=deleteImg]").click(
 			function(){
-				$('#dialog').dialog('open');
+				$('#dialog*').dialog('open');
 				$("#itemId").attr("value", $(this).attr('name'));
 				$("#operateForm").attr("action", "<%=request.getContextPath()%>/pages/target_catelog/targetCatelogAction_removeTargetCatelog.action");
 				return false;
@@ -48,8 +48,8 @@
 		<tr>
 			<td><s:property value="#status.index+1" /></td>
 			<td width="100px">
-				<img name='<s:property value="id" />' id="deleteImg" class="imgClass" src="../../image/delete_button.png"></img> 
-				<img name='<s:property value="id" />' id="updateImg" class="imgClass" src="../../image/update_button.png"></img>
+				<img name='<s:property value="id" />' id="deleteImg<s:property value="#status.index+1" />" class="imgClass" src="../../image/delete_button.png"></img> 
+				<img name='<s:property value="id" />' id="updateImg<s:property value="#status.index+1" />" class="imgClass" src="../../image/update_button.png"></img>
 			</td>
 			<td><s:property value="name" /></td>
 			<td><s:property value="catelogDetail" /></td>
