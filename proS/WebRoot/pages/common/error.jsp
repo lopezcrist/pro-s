@@ -21,6 +21,7 @@
 	font-family: "宋体";
 	font-size: 18px;
 	color: red;
+	text-align: left;
 }
 
 #stack {
@@ -36,7 +37,12 @@
 <body>
 	<div class="outerDiv">
 		<div id="message">
-			<p><s:property value="%{exception.message}" escape="false"/></p>
+			<div style="float: left; padding-left: 200px;">
+				<img alt="出错啦" src="<%=request.getContextPath()%>/image/failure.png"/>
+			</div>
+			<div style="padding-left: 230px;">
+				<p><s:property value="%{exception.message}" escape="false"/></p>
+			</div>
 		</div>
 		<div id="stack">
 			<p><s:property value="%{exceptionStack}" escape="false"/></p>

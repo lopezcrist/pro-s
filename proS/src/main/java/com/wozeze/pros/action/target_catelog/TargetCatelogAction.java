@@ -1,7 +1,6 @@
 package com.wozeze.pros.action.target_catelog;
 
 import javax.annotation.Resource;
-
 import com.opensymphony.xwork2.ActionContext;
 import com.wozeze.pros.action.BaseAction;
 import com.wozeze.pros.common.Constant;
