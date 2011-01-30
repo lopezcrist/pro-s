@@ -116,3 +116,7 @@ body {
 .imgClass {
 	cursor: pointer;
 }
+
+select {
+	width: 156px;
+}

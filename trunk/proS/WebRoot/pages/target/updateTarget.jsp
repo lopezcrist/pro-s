@@ -5,9 +5,9 @@
 		$("#submitButton").click(
 			function(){
 				if('<s:property value="pageType"/>' == "add"){
-					$("#updateForm").attr("action", "<%=request.getContextPath()%>/pages/target_catelog/targetAction_addTarget");
+					$("#updateForm").attr("action", "<%=request.getContextPath()%>/pages/target/targetAction_addTarget");
 				}else{
-					$("#updateForm").attr("action", "<%=request.getContextPath()%>/pages/target_catelog/targetAction_modifyTarget");
+					$("#updateForm").attr("action", "<%=request.getContextPath()%>/pages/target/targetAction_modifyTarget");
 				}
 			}
 		)
@@ -29,7 +29,7 @@
 			<tr>
 				<td id="td_left">目标分类:</td>
 				<td id="td_left">
-					<s:select list="targetCatelogs" listKey="id" listValue="name" name="targetCatelogIds" value="%(targetCatelogs.{id})"></s:select>
+					<s:select list="targetCatelogs" listValue="name" listKey="id" name="target.targetCatelog.id" headerKey="-1" headerValue="请选择目标分类"/>
 				</td>
 			</tr>
 			<tr>

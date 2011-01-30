@@ -7,9 +7,9 @@
 <head>
 <link rel="stylesheet" href="<%=path %>/styles/pros.css" type="text/css"/>
 <link rel="stylesheet" href="<%=path %>/styles/jquery/jquery-ui.css" type="text/css"/>
-<script type="text/javascript" src="<%=path %>/scripts/pros.js"></script>
 <script type="text/javascript" src="<%=path %>/scripts/jquery/jquery.js"></script>
 <script type="text/javascript" src="<%=path %>/scripts/jquery/jquery-ui.js"></script>
+<script type="text/javascript" src="<%=path %>/scripts/pros.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>首页</title>
 </head>
