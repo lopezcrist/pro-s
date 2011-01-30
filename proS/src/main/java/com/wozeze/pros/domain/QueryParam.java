@@ -8,6 +8,10 @@ public class QueryParam<T> {
 		
 	}
 	
+	public QueryParam(boolean _all){
+		this.all = _all; 
+	}
+	
 	public QueryParam(Page _page, T _paramObject){
 		this.page = _page;
 		this.paramObject = _paramObject;
@@ -15,7 +19,17 @@ public class QueryParam<T> {
 	
 	private Page page;
 	private T paramObject;
+	/** true: find all */
+	private boolean all;
 	
+	public boolean isAll() {
+		return all;
+	}
+
+	public void setAll(boolean all) {
+		this.all = all;
+	}
+
 	public Page getPage() {
 		return page;
 	}

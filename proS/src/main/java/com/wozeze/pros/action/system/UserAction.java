@@ -49,7 +49,7 @@ public class UserAction extends BaseAction{
 	public String login() {
 		User user1 = userService.getUserByUsernameAndPassword(user);
 		if(user1!=null){
-			ActionContext.getContext().getSession().put(Constant.USER, user1.getName());
+			ActionContext.getContext().getSession().put(Constant.USER, user1);
 			return Constant.LOGIN_SUCCESS;
 		}else{
 			this.addFieldError(Constant.USER_NAME, Message.USER_NAME_PASSWORD_WRONG);

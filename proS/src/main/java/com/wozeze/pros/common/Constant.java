@@ -24,6 +24,7 @@ public class Constant {
 	public static final String OPERATOR_SUCCESS = "operateSuccess";
 	public static final String UPDATE_TARGET_CATELOG_PAGE = "updateTargetCatelogPage";
 	public static final String QUERY_TARGET_CATELOGS = "queryTargetCatelogs";
+	public static final String UPDATE_TARGET_PAGE = "updateTargetPage";
 	
 	/** for add page or update page*/
 	public static final String PAGE_TYPE_ADD = "add";
