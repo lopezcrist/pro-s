@@ -29,7 +29,7 @@
 			<tr>
 				<td id="td_left">目标分类:</td>
 				<td id="td_left">
-					<s:select list="targetCatelogs" listKey="catelog.name" value="catelog" name="catelog.name" id="catelog.id"></s:select>
+					<s:select list="targetCatelogs" listKey="id" listValue="name" name="targetCatelogIds" value="%(targetCatelogs.{id})"></s:select>
 				</td>
 			</tr>
 			<tr>
