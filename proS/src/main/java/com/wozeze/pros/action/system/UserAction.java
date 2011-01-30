@@ -52,7 +52,7 @@ public class UserAction extends BaseAction{
 			ActionContext.getContext().getSession().put(Constant.USER, user1);
 			return Constant.LOGIN_SUCCESS;
 		}else{
-			this.addFieldError(Constant.USER_NAME, Message.USER_NAME_PASSWORD_WRONG);
+			this.addFieldError(Constant.USER_NAME, getText(Message.USER_NAME_PASSWORD_WRONG));
 			return Constant.LOGIN_FAILURE;
 		}
 	}
