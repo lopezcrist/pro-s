@@ -16,14 +16,14 @@
 <body>
 <div id="center">
 <div id="top">
-	<s:property value="#session.user"/>
+	<s:property value="#session.user.name"/>
 	<s:a action="user" method="logout" namespace="/pages/system">退出</s:a>
 </div>
 <div id="header"><FONT SIZE="3" COLOR="#FFFF33">实现你的目标</FONT></div>
 <div id="mainbox">
 <div id="menu">
 	<div class="menu_item">目标</div>
-	<div class="menu_item">增加目标</div>
+	<div class="menu_item"><s:a action="targetAction" method="toTargetAddPage" namespace="/pages/target">增加目标</s:a></div>
 	<div class="menu_item"><s:a action="targetCatelogAction" method="queryTargetCatelogs" namespace="/pages/target_catelog">目标分类</s:a></div>
 	<div class="menu_item"><s:a action="targetCatelogAction" method="toTargetCatelogAddPage" namespace="/pages/target_catelog">增加目标分类</s:a></div>
 </div>

@@ -28,7 +28,8 @@
 		base-package="com.wozeze.pros.service;
 					  com.wozeze.pros.service.impl.system;
 					  com.wozeze.pros.service.impl.target_catelog;
-					  com.wozeze.pros.service.impl.common;" 
+					  com.wozeze.pros.service.impl.common;
+					  com.wozeze.pros.service.impl.target" 
 	/> 
 
 	<!-- scan for mappers and let them be autowired -->
@@ -36,7 +37,8 @@
 		<property name="basePackage" 
 			value="com.wozeze.pros.dao.target_catelog;
 				   com.wozeze.pros.dao.system;
-				   com.wozeze.pros.dao.common"
+				   com.wozeze.pros.dao.common;
+				   com.wozeze.pros.dao.target"
 		/>
 	</bean>
 </beans>

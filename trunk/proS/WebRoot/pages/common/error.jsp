@@ -19,7 +19,7 @@
 #message {
 	border:1px solid black;
 	font-family: "宋体";
-	font-size: 18px;
+	font-size: 14px;
 	color: red;
 	text-align: left;
 }
@@ -29,7 +29,7 @@
 	border:1px solid green;
 	text-align: left;
 	font-family: "宋体";
-	font-size: 16px;
+	font-size: 12 px;
 	color: black;
 }
 </style>

@@ -1,10 +1,12 @@
 package com.wozeze.pros.interceptor;
 
 import java.util.Map;
+
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
+import com.wozeze.pros.domain.system.User;
 
 public class AuthorityInterceptor extends AbstractInterceptor {
 
@@ -15,7 +17,7 @@ public class AuthorityInterceptor extends AbstractInterceptor {
 		ActionContext ctx = invocation.getInvocationContext();
 		Map<String, Object> session = ctx.getSession();
 		// 取出名为user的session属性
-		String user = (String) session.get("user");
+		User user = (User) session.get("user");
 		// 如果没有登陆，都返回重新登陆
 		if (user != null) {
 			return invocation.invoke();

@@ -11,6 +11,7 @@
 	<typeAliases>
 		<typeAlias alias="user" type="com.wozeze.pros.domain.system.User" />
 		<typeAlias alias="targetCatelog" type="com.wozeze.pros.domain.target_catelog.TargetCatelog" />
+		<typeAlias alias="target" type="com.wozeze.pros.domain.target.Target" />
 		<typeAlias alias="queryParam" type="com.wozeze.pros.domain.QueryParam"/>
 	</typeAliases>
 </configuration>
