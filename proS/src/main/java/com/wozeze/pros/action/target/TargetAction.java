@@ -6,8 +6,10 @@ import javax.annotation.Resource;
 
 import com.wozeze.pros.action.BaseAction;
 import com.wozeze.pros.common.Constant;
+import com.wozeze.pros.common.Message;
 import com.wozeze.pros.domain.QueryParam;
 import com.wozeze.pros.domain.ResultObject;
+import com.wozeze.pros.domain.target.Target;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
 import com.wozeze.pros.service.iface.target_catelog.ITargetCatelogService;
 
@@ -20,15 +22,28 @@ public class TargetAction extends BaseAction {
 	
 	List<TargetCatelog> targetCatelogs;
 	
+	private Target target;
+	
 	/** add: to add page; update: to update page */
 	private String pageType;
 	
 	public String toTargetAddPage() {
-		QueryParam<TargetCatelog> queryParam = new QueryParam<TargetCatelog>(true);
-		ResultObject<TargetCatelog> resultObject = targetCatelogService.getTargetCatelogs(queryParam);
-		targetCatelogs = resultObject.getResults();
 		setPageType(Constant.PAGE_TYPE_ADD);
 		return Constant.UPDATE_TARGET_PAGE;
+	}
+	
+	/**
+	 * add a target
+	 * @return
+	 */
+	public String addTarget(){
+		if("-1".equals(target.getTargetCatelog().getId())){
+			addFieldError(Constant.TARGET_TARGETCATELOG_ID, getText(Message.SELECT_ONE_TARGETCATELOG));
+			setPageType(Constant.PAGE_TYPE_ADD);
+			return Constant.UPDATE_TARGET_PAGE;
+		}else{
+			return Constant.OPERATOR_SUCCESS;
+		}
 	}
 	
 	public String getPageType() {
@@ -40,6 +55,9 @@ public class TargetAction extends BaseAction {
 	}
 	
 	public List<TargetCatelog> getTargetCatelogs() {
+		QueryParam<TargetCatelog> queryParam = new QueryParam<TargetCatelog>(true);
+		ResultObject<TargetCatelog> resultObject = targetCatelogService.getTargetCatelogs(queryParam);
+		targetCatelogs = resultObject.getResults();
 		return targetCatelogs;
 	}
 
@@ -47,5 +65,17 @@ public class TargetAction extends BaseAction {
 		this.targetCatelogs = targetCatelogs;
 	}
 
+	public Target getTarget() {
+		if(target == null){
+			System.out.println("null");
+		}else {
+			System.out.println(target.getTargetCatelog().getId());
+		}
+		return target;
+	}
+
+	public void setTarget(Target target) {
+		this.target = target;
+	}
 
 }

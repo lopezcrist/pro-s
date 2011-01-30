@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE validators PUBLIC
+ "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+ "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="target.name">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>目标名称不能为空</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">2</param>
+			<param name="maxLength">15</param>
+			<message>目标名称长度应在2到15个字符间</message>
+		</field-validator>
+	</field>
+
+	<field name="target.targetCatelog.id">
+		<field-validator type="fieldexpression">
+			<param name="expression">"-1".equals(target.targetCatelog.id)</param>
+			<message>请选择一个目标分类</message>
+		</field-validator>
+	</field>
+
+	<field name="target.beginDate">
+		<field-validator type="date">
+			<message>开始时间不符合日期格式</message>
+		</field-validator>
+	</field>
+	
+	<field name="target.endDate">
+		<field-validator type="date">
+			<message>结束时间不符合日期格式</message>
+		</field-validator>
+	</field>
+</validators>

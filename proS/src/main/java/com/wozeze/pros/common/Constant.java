@@ -33,6 +33,7 @@ public class Constant {
 	public static final String SUCCESS_CONTENT = "success_content";
 	public static final String USER_NAME = "user.name";
 	public static final String USER = "user";
+	public static final String TARGET_TARGETCATELOG_ID = "target.targetCatelog.id";
 	
 	
 }
