@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wozeze.pros.dao.target.TargetCatelogMapper">
+
+	<insert id="insertTarget" parameterType="target">
+		<selectKey keyProperty="id" resultType="string" order="BEFORE">
+			SELECT sys_guid() FROM dual 
+    	</selectKey>
+		INSERT INTO
+		TE_TARGET (ID, TARGET_NAME, BEGIN_DATE, END_DATE)
+		VALUES
+		(#{id}, #{name}, #{detail}, #{beginDate}, #{endDate})
+	</insert>
+	
+	<insert id="insertTargetRelationTargetCatelog" parameterType="target">
+		INSERT INTO
+		TR_TARGET_CATELOG (TARGET_ID, CATELOG_ID)
+		VALUES
+		(#{id}, #{targetCatelog.id})
+	</insert>
+</mapper>

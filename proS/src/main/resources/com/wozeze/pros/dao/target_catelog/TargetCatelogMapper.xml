@@ -15,19 +15,23 @@
 	</insert>
 	
 	<select id="queryTargetCatelogs" parameterType="queryParam" resultType="targetCatelog">
-		<![CDATA[
 			select t.id     AS id,
        		t.catelog_name 	AS name,
       		(CASE WHEN LENGTH(t.detail) >= 15 then substr(t.detail,1,15)||'...' else t.detail end)  AS catelogDetail
   			from te_target_catelog t
- 			where rowid in
-      		 (select rid
-        	  from (select rownum rn, rid
-                  from (select rowid rid, id from te_target_catelog order by id desc)
-                 where rownum <= #{page.startRow} + #{page.pageSize})
-       			  where rn > #{page.startRow})
- 				order by id desc
-		]]>
+  			<where>
+				<if test="!all">
+					<![CDATA[  			
+		 			 rowid in
+		      		 (select rid
+		        	  from (select rownum rn, rid
+		                  from (select rowid rid, id from te_target_catelog order by id desc)
+		                 where rownum <= #{page.startRow} + #{page.pageSize})
+		       			  where rn > #{page.startRow})
+		 				order by id desc
+		 			]]>
+ 				</if>
+ 			</where>
 	</select>
 	
 	<delete id="deleteTargetCatelog" parameterType="targetCatelog">
