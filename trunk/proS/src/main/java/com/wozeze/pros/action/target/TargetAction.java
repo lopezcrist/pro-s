@@ -4,6 +4,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import com.wozeze.pros.action.BaseAction;
 import com.wozeze.pros.common.Constant;
+import com.wozeze.pros.common.Message;
 import com.wozeze.pros.domain.QueryParam;
 import com.wozeze.pros.domain.target.Target;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
@@ -38,6 +39,7 @@ public class TargetAction extends BaseAction {
 	 */
 	public String addTarget(){
 		targetService.addTarget(target);
+		setSuccuessMsg(getText(Message.ADD_TARGET_SUCCESS));
 		return Constant.OPERATOR_SUCCESS;
 	}
 	
