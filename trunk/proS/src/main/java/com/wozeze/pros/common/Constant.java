@@ -2,8 +2,9 @@ package com.wozeze.pros.common;
 
 public class Constant {
 
-	/**  target catelog table name*/
+	/**  target name*/
 	public static final String T_TARGET_CATELOG = "TE_TARGET_CATELOG";
+	public static final String T_TARGET = "TE_TARGET";
 	
 	/** pagination navigation */
 	public static final String TO_FIRST = "first";
@@ -13,6 +14,8 @@ public class Constant {
 	
 	/** baseAction use string tableName */
 	public static final String TABLE_NAME = "tableName";
+	
+	public static final String PAGE_RESULT = "pageResult";
 	
 	/** page navigation*/
 	public static final String INDEX = "index";
@@ -25,6 +28,7 @@ public class Constant {
 	public static final String UPDATE_TARGET_CATELOG_PAGE = "updateTargetCatelogPage";
 	public static final String QUERY_TARGET_CATELOGS = "queryTargetCatelogs";
 	public static final String UPDATE_TARGET_PAGE = "updateTargetPage";
+	public static final String QUERY_TARGETS = "queryTargets";
 	
 	/** for add page or update page*/
 	public static final String PAGE_TYPE_ADD = "add";
