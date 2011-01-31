@@ -1,10 +1,16 @@
 package com.wozeze.pros.service.impl.target;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.wozeze.pros.dao.target.TargetMapper;
+import com.wozeze.pros.dao.target_catelog.TargetCatelogMapper;
+import com.wozeze.pros.domain.QueryParam;
 import com.wozeze.pros.domain.target.Target;
+import com.wozeze.pros.domain.target_catelog.TargetCatelog;
 import com.wozeze.pros.service.BaseService;
 import com.wozeze.pros.service.iface.target.ITargetService;
 
@@ -14,11 +20,23 @@ public class TargetServiceImpl extends BaseService<Target> implements ITargetSer
 	@Autowired
 	TargetMapper targetMapper;
 	
+	@Autowired
+	TargetCatelogMapper targetCatelogMapper;
+	
 	@Override
 	@Transactional
 	public void addTarget(Target target) {
-		targetMapper.insertTargetCatelog(target);
+		targetMapper.insertTarget(target);
 		targetMapper.insertTargetRelationTargetCatelog(target);
+	}
+
+	/**
+	 * get all targetCatelogs
+	 * @return
+	 */
+	@Override
+	public List<TargetCatelog> getTargetCatelogs(QueryParam<TargetCatelog> queryParam) {
+		return targetCatelogMapper.queryTargetCatelogs(queryParam);
 	}
 
 }

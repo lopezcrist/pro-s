@@ -15,23 +15,25 @@
 			<message>目标名称长度应在2到15个字符间</message>
 		</field-validator>
 	</field>
-
+	
 	<field name="target.targetCatelog.id">
 		<field-validator type="fieldexpression">
-			<param name="expression">"-1".equals(target.targetCatelog.id)</param>
-			<message>请选择一个目标分类</message>
+			<param name="expression">(target.targetCatelog.id != "-1")</param>
+            <message>请选择目标分类</message>
 		</field-validator>
 	</field>
 
 	<field name="target.beginDate">
-		<field-validator type="date">
-			<message>开始时间不符合日期格式</message>
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>开始时间不能为空</message>
 		</field-validator>
 	</field>
 	
 	<field name="target.endDate">
-		<field-validator type="date">
-			<message>结束时间不符合日期格式</message>
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>结束时间不能为空</message>
 		</field-validator>
 	</field>
 </validators>

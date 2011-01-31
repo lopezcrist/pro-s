@@ -94,11 +94,11 @@ table {
 		</tr>
 		<tr>
 			<td class="tdLabel">用户名:</td>
-			<td><s:textfield id="username" cssClass="s_text" name="user.name" /></td>
+			<td><s:textfield id="username" cssClass="s_text" name="user.name" value="wozeze"/></td>
 		</tr>
 		<tr>
 			<td class="tdLabel">密码:</td>
-			<td><s:password cssClass="s_text" name="user.password" /></td>
+			<td><s:textfield cssClass="s_text" name="user.password" value="123456" /></td>
 		</tr>
 		<tr>
 			<td></td>
