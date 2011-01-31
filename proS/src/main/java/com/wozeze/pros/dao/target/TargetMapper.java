@@ -8,7 +8,7 @@ public interface TargetMapper {
 	 * add a target
 	 * @param target
 	 */
-	public void insertTargetCatelog(Target target);
+	public void insertTarget(Target target);
 	
 	/**
 	 * add a target and targetCatelog's relationship
