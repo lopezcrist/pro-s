@@ -4,61 +4,57 @@
  "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
 <validators>
 	<field name="user.name">
-		<!-- 验证字符串不能为空 -->
 		<field-validator type="requiredstring">
-			<!-- 去空格 -->
 			<param name="trim">true</param>
-			<!-- 错误提示信息 -->
-			<message>用户名不能为空</message>
+			<message key="user.name.not.blank"/>
 		</field-validator>
 
-		<!-- 验证字符串长度 -->
 		<field-validator type="stringlength">
 			<param name="minLength">2</param>
 			<param name="maxLength">20</param>
-			<message>用户名长度应在2到18个字符间</message>
+			<message key="user.name.length.limi"/>
 		</field-validator>
 	</field>
 
 	<field name="user.password">
 		<field-validator type="requiredstring">
 			<param name="trim">true</param>
-			<message>密码不能为空</message>
+			<message key="user.password.not.blank"/>
 		</field-validator>
 
 		<field-validator type="stringlength">
 			<param name="minLength">6</param>
 			<param name="maxLength">18</param>
-			<message>密码长度应在6到18个字符之间</message>
+			<message key="user.password.length.limit"/>
 		</field-validator>
 	</field>
 	
 	<field name="user.passwordRe">
 		<field-validator type="requiredstring">
 			<param name="trim">true</param>
-			<message>确认密码不能为空</message>
+			<message key="user.repassword.not.blank"/>
 		</field-validator>
 
 		<field-validator type="stringlength">
 			<param name="minLength">6</param>
 			<param name="maxLength">18</param>
-			<message>密码长度应在6到18个字符之间</message>
+			<message key="user.repassword.length.limit"/>
 		</field-validator>
 		
 		<field-validator type="fieldexpression">
 			<param name="expression"> (user.password eq user.passwordRe)</param>
-         	<message>密码必须和确认密码相等</message>
+         	<message key="user.password.eq.repassword"/>
 		</field-validator>
 	</field>
 	
 	<field name="user.email">
 		<field-validator type="requiredstring">
 			<param name="trim">true</param>
-			<message>邮箱不能为空</message>
+			<message key="user.email.not.blank"/>
 		</field-validator>
 		<field-validator type="email">
 			<param name="trim">true</param>
-			<message>邮箱不正确</message>
+			<message key="user.email.format.wrong"/>
 		</field-validator>
 	</field>
 	

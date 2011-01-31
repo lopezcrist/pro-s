@@ -40,11 +40,12 @@
 	<tr id="table_header">
 		<td>序号</td>
 		<td>操作</td>
-		<td>目标分类名称</td>
+		<td>目标名称</td>
+		<td>所属分类名称</td>
 		<td>目标分类详情</td>
 	</tr>
 
-	<s:iterator value="#request.targetCatelogs" status="status">
+	<s:iterator value="#request.pageResult" status="status">
 		<tr>
 			<td><s:property value="#status.index+1" /></td>
 			<td width="100px">
@@ -52,7 +53,8 @@
 				<img name='<s:property value="id" />' id="updateImg<s:property value="#status.index+1" />" class="imgClass" src="../../image/update_button.png"></img>
 			</td>
 			<td><s:property value="name" /></td>
-			<td><s:property value="catelogDetail" /></td>
+			<td><s:property value="targetCatelog.name" /></td>
+			<td><s:property value="detail" /></td>
 		</tr>
 	</s:iterator>
 </table>

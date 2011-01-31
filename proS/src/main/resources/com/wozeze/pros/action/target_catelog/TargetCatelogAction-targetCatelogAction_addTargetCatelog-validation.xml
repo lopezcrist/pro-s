@@ -6,20 +6,20 @@
 	<field name="targetCatelog.name">
 		<field-validator type="requiredstring">
 			<param name="trim">true</param>
-			<message>目标分类名称不能为空</message>
+			<message key="target.catelog.name.not.blank"/>
 		</field-validator>
 
 		<field-validator type="stringlength">
 			<param name="minLength">2</param>
 			<param name="maxLength">15</param>
-			<message>目标分类名称长度应在2到15个字符间</message>
+			<message key="target.name.length"/>
 		</field-validator>
 	</field>
 	
 	<field name="targetCatelog.catelogDetail">
 		<field-validator type="stringlength">
 			<param name="maxLength">50</param>
-			<message>目标分类详情长度不能超过50个字符</message>
+			<message key="target.catelog.detail.length.limit"/>
 		</field-validator>
 	</field>
 </validators>

@@ -6,34 +6,45 @@
 	<field name="target.name">
 		<field-validator type="requiredstring">
 			<param name="trim">true</param>
-			<message>目标名称不能为空</message>
+			<message key="target.name.not.blank"/>
 		</field-validator>
 
 		<field-validator type="stringlength">
 			<param name="minLength">2</param>
 			<param name="maxLength">15</param>
-			<message>目标名称长度应在2到15个字符间</message>
+			<message key="target.name.length"/>
 		</field-validator>
 	</field>
 	
 	<field name="target.targetCatelog.id">
 		<field-validator type="fieldexpression">
 			<param name="expression">(target.targetCatelog.id != "-1")</param>
-            <message>请选择目标分类</message>
+            <message key="target.catelog.select"/>
 		</field-validator>
 	</field>
 
 	<field name="target.beginDate">
 		<field-validator type="requiredstring">
 			<param name="trim">true</param>
-			<message>开始时间不能为空</message>
+			<message key="target.begindate.not.blank"/>
 		</field-validator>
 	</field>
 	
 	<field name="target.endDate">
 		<field-validator type="requiredstring">
 			<param name="trim">true</param>
-			<message>结束时间不能为空</message>
+			<message key="target.enddate.not.blank"/>
+		</field-validator>
+		 <field-validator type="fieldexpression">
+            <param name="expression"><![CDATA[target.endDate>=target.beginDate]]></param>
+            <message key="target.begindate.less.then.enddate"/>
+        </field-validator>
+	</field>
+	
+	<field name="target.detail">
+		<field-validator type="stringlength">
+			<param name="maxLength">50</param>
+			<message key="target.detail.length.limit"/>
 		</field-validator>
 	</field>
 </validators>
