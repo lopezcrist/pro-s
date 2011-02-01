@@ -4,8 +4,6 @@ import javax.annotation.Resource;
 import com.wozeze.pros.action.BaseAction;
 import com.wozeze.pros.common.Constant;
 import com.wozeze.pros.common.Message;
-import com.wozeze.pros.domain.QueryParam;
-import com.wozeze.pros.domain.ResultObject;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
 import com.wozeze.pros.service.iface.target_catelog.ITargetCatelogService;
 
@@ -14,14 +12,14 @@ import com.wozeze.pros.service.iface.target_catelog.ITargetCatelogService;
  * @author Administrator
  * 
  */
-public class TargetCatelogAction extends BaseAction {
+public class TargetCatelogAction extends BaseAction<TargetCatelog> {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Resource
 	ITargetCatelogService<TargetCatelog> targetCatelogService;
 	
-	private TargetCatelog targetCatelog;
+	private TargetCatelog targetCatelog = new TargetCatelog();
 	
 	/** add: to add page; update: to update page */
 	private String pageType;
@@ -41,6 +39,7 @@ public class TargetCatelogAction extends BaseAction {
 	 * @return
 	 */
 	public String addTargetCatelog() {
+		targetCatelog.setUser(getUser());
 		targetCatelogService.addTargetCatelog(targetCatelog);
 		setSuccuessMsg(getText(Message.ADD_TARGETCATELOG_SUCCESS));
 		return Constant.OPERATOR_SUCCESS;
@@ -62,7 +61,7 @@ public class TargetCatelogAction extends BaseAction {
 	 */
 	public String toModifyTargetCatelogPage(){
 		setPageType(Constant.PAGE_TYPE_UPDATE);
-		targetCatelog = targetCatelogService.getTargetCatelog(targetCatelog);
+		targetCatelog = targetCatelogService.findTargetCatelog(targetCatelog);
 		return Constant.UPDATE_TARGET_CATELOG_PAGE;
 	}
 	
@@ -77,15 +76,20 @@ public class TargetCatelogAction extends BaseAction {
 	}
 	
 	/**
-	 * query all targetCatelogs
+	 * find targetCatelogs
 	 * @return
 	 */
-	public String getTargetCatelogs() {
-		QueryParam<TargetCatelog> queryParam = new QueryParam<TargetCatelog>(page, targetCatelog);
-		ResultObject<TargetCatelog> resultObject = targetCatelogService.getTargetCatelogs(queryParam);
-		page = resultObject.getPage();
-		setPageResult(resultObject.getResults());
-		return Constant.QUERY_TARGET_CATELOGS;
+	public String findTargetCatelogs(){
+		targetCatelog.setUser(getUser());
+		pagination.setParamObject(targetCatelog);
+		pagination = targetCatelogService.findTargetCatelogPagination(pagination);
+		if(pagination.getTotalRows() > 0){
+			setPageResult(pagination.getItems());
+			return Constant.QUERY_TARGET_CATELOGS;
+		}else {
+			setFailureMsg(getText(Message.NO_RESULT));
+			return Constant.OPERATOR_FAILURE;
+		}
 	}
 	
 	public TargetCatelog getTargetCatelog() {
