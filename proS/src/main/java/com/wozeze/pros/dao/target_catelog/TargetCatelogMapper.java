@@ -1,7 +1,7 @@
 package com.wozeze.pros.dao.target_catelog;
 
 import java.util.List;
-import com.wozeze.pros.domain.QueryParam;
+import com.wozeze.pros.common.Pagination;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
 
 public interface TargetCatelogMapper {
@@ -13,11 +13,17 @@ public interface TargetCatelogMapper {
 	public void insertTargetCatelog(TargetCatelog targetCatelog);
 	
 	/**
-	 * query some targetCatelog
+	 * add relationship between user and targetCatelog
 	 * @param targetCatelog
+	 */
+	public void insertTargetCatelogRelationUser(TargetCatelog targetCatelog);
+	
+	/**
+	 * query some targetCatelog
+	 * @param pagination
 	 * @return
 	 */
-	public List<TargetCatelog> queryTargetCatelogs(QueryParam<TargetCatelog> queryParam);
+	public List<TargetCatelog> queryTargetCatelogPagination(Pagination<TargetCatelog> pagination);
 	
 	/**
 	 * delete a targetCatelog by Id

@@ -1,6 +1,7 @@
 package com.wozeze.pros.domain.target;
 
 import com.wozeze.pros.domain.BaseDomain;
+import com.wozeze.pros.domain.system.User;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
 
 public class Target extends BaseDomain{
@@ -9,7 +10,14 @@ public class Target extends BaseDomain{
 	private String endDate;
 	private String detail;
 	private TargetCatelog targetCatelog;
+	private User user;
 	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public String getBeginDate() {
 		return beginDate;
 	}
