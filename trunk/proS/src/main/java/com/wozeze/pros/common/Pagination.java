@@ -1,12 +1,20 @@
 package com.wozeze.pros.common;
 
+import java.util.List;
+
 /**
- * 分页工具类
+ * pagination tools
  * @author Administrator
  *
  */
-public class Page {
+public class Pagination<T> {
 	
+	/** 对象集合 */
+	private List<T> items;
+	/** 查询对象 */
+	private T paramObject;
+	/** true: find all */
+	private boolean all;
 	/** 总行数 */
 	private int totalRows; 
 	/** 每页显示的行数 */
@@ -24,77 +32,38 @@ public class Page {
 	/** 翻页类型 */
 	private String navigationPage;
 
-	public Page() {
-
+	public Pagination() {
+		setPreNextBoolean();
 	}
 
-	public Page(int _totalRows) {
+	public Pagination(int _totalRows, T _paramObject, boolean _all) {
+		this.paramObject = _paramObject;
 		totalRows = _totalRows;
 		totalPages = totalRows / pageSize;
 		int mod = totalRows % pageSize;
 		if (mod > 0) {
 			totalPages++;
-		}
-		if(totalPages != 1){
-			hasNextPage = true;
 		}
 		currentPage = 1;
 		startRow = 0;
+		all = _all;
+		setPreNextBoolean();
 	}
 	
-	public Page(int _totalRows, int _currentPage){
+	public Pagination(int _totalRows, int _currentPage, T _paramObject, boolean _all){
+		this.paramObject = _paramObject;
 		totalRows = _totalRows;
 		totalPages = totalRows / pageSize;
 		int mod = totalRows % pageSize;
 		if (mod > 0) {
 			totalPages++;
 		}
+		startRow = (_currentPage - 1) * pageSize;
 		currentPage = _currentPage;
+		all = _all;
+		setPreNextBoolean();
 	}
 	
-	/**
-	 * 第一页
-	 */
-	public void first() {
-		currentPage = 1;
-		startRow = 0;
-		if(totalPages != 1){
-			hasNextPage = true;
-		}
-	}
-
-	/**
-	 * 前一页
-	 */
-	public void previous() {
-		if (currentPage == 1) {
-			return;
-		}
-		currentPage--;
-		startRow = (currentPage - 1) * pageSize;
-		setPreNextBoolean();
-	}
-
-	/**
-	 * 下一页
-	 */
-	public void next() {
-		if (currentPage < totalPages) {
-			currentPage++;
-		}
-		startRow = (currentPage - 1) * pageSize;
-		setPreNextBoolean();
-	}
-
-	/**
-	 * 最后一页
-	 */
-	public void last() {
-		currentPage = totalPages;
-		startRow = (currentPage - 1) * pageSize;
-		setPreNextBoolean();
-	}
-
 	private void setPreNextBoolean(){
 		if(currentPage != 1){
 			hasPreviousPage = true;
@@ -170,5 +139,28 @@ public class Page {
 
 	public void setNavigationPage(String navigationPage) {
 		this.navigationPage = navigationPage;
+	}
+	
+	public List<T> getItems() {
+		return items;
+	}
+
+	public void setItems(List<T> items) {
+		this.items = items;
+	}
+	
+	public T getParamObject() {
+		return paramObject;
+	}
+
+	public void setParamObject(T paramObject) {
+		this.paramObject = paramObject;
+	}
+	public boolean isAll() {
+		return all;
+	}
+
+	public void setAll(boolean all) {
+		this.all = all;
 	}
 }

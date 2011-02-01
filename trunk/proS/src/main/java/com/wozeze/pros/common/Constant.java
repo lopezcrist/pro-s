@@ -25,6 +25,7 @@ public class Constant {
 	public static final String LOGOUT_SUCCESS = "logoutSuccess";
 	public static final String LOGIN_SUCCESS = "loginSuccess";
 	public static final String OPERATOR_SUCCESS = "operateSuccess";
+	public static final String OPERATOR_FAILURE = "operateFailure";
 	public static final String UPDATE_TARGET_CATELOG_PAGE = "updateTargetCatelogPage";
 	public static final String QUERY_TARGET_CATELOGS = "queryTargetCatelogs";
 	public static final String UPDATE_TARGET_PAGE = "updateTargetPage";
@@ -35,6 +36,7 @@ public class Constant {
 	public static final String PAGE_TYPE_UPDATE = "update";
 	
 	public static final String SUCCESS_CONTENT = "success_content";
+	public static final String FAILURE_CONTENT = "failure_content";
 	public static final String USER_NAME = "user.name";
 	public static final String USER = "user";
 	public static final String TARGET_TARGETCATELOG_ID = "target.targetCatelog.id";
