@@ -3,10 +3,10 @@ package com.wozeze.pros.service.impl.target_catelog;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import com.wozeze.pros.common.Constant;
+import com.wozeze.pros.common.Pagination;
 import com.wozeze.pros.dao.target_catelog.TargetCatelogMapper;
-import com.wozeze.pros.domain.QueryParam;
-import com.wozeze.pros.domain.ResultObject;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
 import com.wozeze.pros.service.BaseService;
 import com.wozeze.pros.service.iface.target_catelog.ITargetCatelogService;
@@ -17,18 +17,27 @@ public class TargetCatelogServiceImpl extends BaseService<TargetCatelog> impleme
 	@Autowired
 	TargetCatelogMapper targetCatelogMapper;
 	
+	/**
+	 * add a targetCatelog
+	 * @param catelog
+	 */
 	@Override
+	@Transactional
 	public void addTargetCatelog(TargetCatelog catelog) {
 		targetCatelogMapper.insertTargetCatelog(catelog);
+		targetCatelogMapper.insertTargetCatelogRelationUser(catelog);
 	}
 
 	@Override
-	public ResultObject<TargetCatelog> getTargetCatelogs(QueryParam<TargetCatelog> queryParam) {
-		List<TargetCatelog> targetCatelogs = targetCatelogMapper.queryTargetCatelogs(setQueryParamValue(queryParam, Constant.T_TARGET_CATELOG));
-		ResultObject<TargetCatelog> resultSet = new ResultObject<TargetCatelog>();
-		resultSet.setResults(targetCatelogs);
-		resultSet.setPage(queryParam.getPage());
-		return resultSet;
+	public Pagination<TargetCatelog> findTargetCatelogPagination(Pagination<TargetCatelog> pagination){
+		pagination = setPagination(pagination, Constant.T_TARGET_CATELOG);
+		if(pagination.getTotalRows() == 0){
+			return pagination;
+		}else{
+			List<TargetCatelog> catelogs = targetCatelogMapper.queryTargetCatelogPagination(pagination);
+			pagination.setItems(catelogs);
+			return pagination;
+		}
 	}
 	
 	@Override
@@ -37,7 +46,7 @@ public class TargetCatelogServiceImpl extends BaseService<TargetCatelog> impleme
 	}
 
 	@Override
-	public TargetCatelog getTargetCatelog(TargetCatelog catelog) {
+	public TargetCatelog findTargetCatelog(TargetCatelog catelog) {
 		return targetCatelogMapper.queryTargetCatelogById(catelog);
 	}
 

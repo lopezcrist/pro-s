@@ -14,6 +14,11 @@
 		(#{id}, #{name}, to_date(#{beginDate},'yyyy-mm-dd'), to_date(#{endDate},'yyyy-mm-dd'), #{detail})
 	</insert>
 	
+	<insert id="insertTargetRelationUser" parameterType="target">
+		INSERT INTO tr_user_target (user_id, target_id)
+		VALUES (#{user.id}, #{id})
+	</insert>
+	
 	<insert id="insertTargetRelationTargetCatelog" parameterType="target">
 		INSERT INTO
 		TR_TARGET_CATELOG (TARGET_ID, CATELOG_ID)
@@ -21,8 +26,8 @@
 		(#{id}, #{targetCatelog.id})
 	</insert>
 	
-	<select id="queryTargets" parameterType="queryParam" resultType="target">
-			SELECT t.id id,
+	<select id="queryTargetPagination" parameterType="pagination" resultType="target">
+		SELECT t.id id,
 				t.target_name name,
 				t.detail detail,
 				to_char(t.begin_date,'yyyy-mm-dd') beginDate,
@@ -31,22 +36,24 @@
 			FROM te_target t
 		JOIN tr_target_catelog t1 ON t.id = t1.target_id
 		JOIN te_target_catelog t2 ON t1.catelog_id = t2.id
-		<where>
-			<if test="!all">
-				<![CDATA[
-				 t.ROWID IN
+		JOIN tr_user_target t3 on t.id = t3.target_id
+    	JOIN te_user t4 on t3.user_id = t4.id
+    	WHERE
+    		t4.id = #{paramObject.user.id}
+    		<if test="!all">
+    			<![CDATA[
+				 AND t.ROWID IN
 				  (
 				      SELECT rid
 				      FROM (
 				           SELECT ROWNUM rn, rid
 				             FROM (SELECT ROWID rid, ID FROM te_target)
-				             WHERE ROWNUM <= #{page.startRow} + #{page.pageSize}     
+				             WHERE ROWNUM <= #{startRow} + #{pageSize}     
 				      )    
-				      WHERE rn > #{page.startRow}
+				      WHERE rn > #{startRow}
 				  )
 				]]>
-			</if>
-		</where>
+    		</if>
 	</select>
 	
 	<select id="queryTargetById" parameterType="target" resultType="target">
