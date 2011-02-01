@@ -5,8 +5,7 @@ import javax.annotation.Resource;
 import com.wozeze.pros.action.BaseAction;
 import com.wozeze.pros.common.Constant;
 import com.wozeze.pros.common.Message;
-import com.wozeze.pros.domain.QueryParam;
-import com.wozeze.pros.domain.ResultObject;
+import com.wozeze.pros.common.Pagination;
 import com.wozeze.pros.domain.target.Target;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
 import com.wozeze.pros.service.iface.target.ITargetService;
@@ -16,7 +15,7 @@ import com.wozeze.pros.service.iface.target.ITargetService;
  * @author Administrator
  *
  */
-public class TargetAction extends BaseAction {
+public class TargetAction extends BaseAction<Target> {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -25,7 +24,7 @@ public class TargetAction extends BaseAction {
 	
 	List<TargetCatelog> targetCatelogs;
 	
-	private Target target;
+	private Target target = new Target();
 	
 	/** add: to add page; update: to update page */
 	private String pageType;
@@ -44,6 +43,7 @@ public class TargetAction extends BaseAction {
 	 * @return
 	 */
 	public String addTarget(){
+		target.setUser(getUser());
 		targetService.addTarget(target);
 		setSuccuessMsg(getText(Message.ADD_TARGET_SUCCESS));
 		return Constant.OPERATOR_SUCCESS;
@@ -54,21 +54,30 @@ public class TargetAction extends BaseAction {
 	 * @return
 	 */
 	public List<TargetCatelog> getTargetCatelogs() {
-		QueryParam<TargetCatelog> queryParam = new QueryParam<TargetCatelog>(true);
-		targetCatelogs = targetService.getTargetCatelogs(queryParam);
+		TargetCatelog targetCatelog = new TargetCatelog();
+		targetCatelog.setUser(getUser());
+		Pagination<TargetCatelog> paginationCatelog = new Pagination<TargetCatelog>();
+		paginationCatelog.setAll(true);
+		paginationCatelog.setParamObject(targetCatelog);
+		targetCatelogs = targetService.findTargetCatelogPagination(paginationCatelog).getItems();
 		return targetCatelogs;
 	}
 	
 	/**
-	 * query targets
+	 * find target
 	 * @return
 	 */
-	public String getTargets(){
-		QueryParam<Target> queryParam = new QueryParam<Target>(page, target);
-		ResultObject<Target> resultObject = targetService.getTargets(queryParam);
-		page = resultObject.getPage();
-		setPageResult(resultObject.getResults());
-		return Constant.QUERY_TARGETS;
+	public String findTargets(){
+		target.setUser(getUser());
+		pagination.setParamObject(target);
+		pagination = targetService.findTargetPagination(pagination);
+		if(pagination.getTotalRows() > 0){
+			setPageResult(pagination.getItems());
+			return Constant.QUERY_TARGETS;
+		}else {
+			setFailureMsg(getText(Message.NO_RESULT));
+			return Constant.OPERATOR_FAILURE;
+		}
 	}
 	
 	/**
@@ -76,7 +85,7 @@ public class TargetAction extends BaseAction {
 	 * @return
 	 */
 	public String toModifyTargetPage(){
-		target = targetService.getTarget(target);
+		target = targetService.findTarget(target);
 		setPageType(Constant.PAGE_TYPE_UPDATE);
 		return Constant.UPDATE_TARGET_PAGE;
 	}
