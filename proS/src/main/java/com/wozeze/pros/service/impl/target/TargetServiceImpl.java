@@ -1,11 +1,9 @@
 package com.wozeze.pros.service.impl.target;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.wozeze.pros.common.Constant;
 import com.wozeze.pros.dao.target.TargetMapper;
 import com.wozeze.pros.dao.target_catelog.TargetCatelogMapper;
@@ -51,6 +49,37 @@ public class TargetServiceImpl extends BaseService<Target> implements ITargetSer
 		resultSet.setResults(targets);
 		resultSet.setPage(queryParam.getPage());
 		return resultSet;
+	}
+
+	/**
+	 * find target by id
+	 * @param target
+	 */
+	@Override
+	public Target getTarget(Target target) {
+		return targetMapper.queryTargetById(target);
+	}
+
+	
+	/**
+	 * remove the target
+	 * @param target
+	 */
+	@Override
+	@Transactional
+	public void modifyTarget(Target target) {
+		targetMapper.deleteTargetRelationTargetCatelog(target);
+		targetMapper.updateTarget(target);
+		targetMapper.insertTargetRelationTargetCatelog(target);
+	}
+
+	/**
+	 * remove the target
+	 * @param
+	 */
+	@Override
+	public void removeTarget(Target target) {
+		targetMapper.deleteTarget(target);
 	}
 
 }

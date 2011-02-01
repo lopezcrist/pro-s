@@ -2,8 +2,6 @@ package com.wozeze.pros.action.target;
 
 import java.util.List;
 import javax.annotation.Resource;
-
-import com.opensymphony.xwork2.ActionContext;
 import com.wozeze.pros.action.BaseAction;
 import com.wozeze.pros.common.Constant;
 import com.wozeze.pros.common.Message;
@@ -13,6 +11,11 @@ import com.wozeze.pros.domain.target.Target;
 import com.wozeze.pros.domain.target_catelog.TargetCatelog;
 import com.wozeze.pros.service.iface.target.ITargetService;
 
+/**
+ * target Action
+ * @author Administrator
+ *
+ */
 public class TargetAction extends BaseAction {
 	
 	private static final long serialVersionUID = 1L;
@@ -60,12 +63,42 @@ public class TargetAction extends BaseAction {
 	 * query targets
 	 * @return
 	 */
-	public String queryTargets(){
+	public String getTargets(){
 		QueryParam<Target> queryParam = new QueryParam<Target>(page, target);
 		ResultObject<Target> resultObject = targetService.getTargets(queryParam);
 		page = resultObject.getPage();
-		ActionContext.getContext().put(Constant.PAGE_RESULT, resultObject.getResults());
+		setPageResult(resultObject.getResults());
 		return Constant.QUERY_TARGETS;
+	}
+	
+	/**
+	 * to target modify page
+	 * @return
+	 */
+	public String toModifyTargetPage(){
+		target = targetService.getTarget(target);
+		setPageType(Constant.PAGE_TYPE_UPDATE);
+		return Constant.UPDATE_TARGET_PAGE;
+	}
+	
+	/**
+	 * modify the target
+	 * @return
+	 */
+	public String modifyTarget(){
+		targetService.modifyTarget(target);
+		setSuccuessMsg(getText(Message.UPDATE_TARGET_SUCCESS));
+		return Constant.OPERATOR_SUCCESS;
+	}
+	
+	/**
+	 * remove the target
+	 * @return
+	 */
+	public String removeTarget(){
+		targetService.removeTarget(target);
+		setSuccuessMsg(getText(Message.DELETE_TARGET_SUCCESS));
+		return Constant.OPERATOR_SUCCESS;
 	}
 	
 	public String getPageType() {

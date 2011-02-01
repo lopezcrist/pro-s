@@ -44,7 +44,7 @@
 		<td>目标分类详情</td>
 	</tr>
 
-	<s:iterator value="#request.targetCatelogs" status="status">
+	<s:iterator value="#request.pageResult" status="status">
 		<tr>
 			<td><s:property value="#status.index+1" /></td>
 			<td width="100px">
@@ -60,7 +60,7 @@
 <s:form id="operateForm">
 	<s:hidden id="itemId" name="targetCatelog.id" />
 </s:form>
-<s:set name="actionUrl" value="/pages/target_catelog/targetCatelogAction_queryTargetCatelogs.action" />
+<s:set name="actionUrl" value="/pages/target_catelog/targetCatelogAction_getTargetCatelogs.action" />
 <div id="dialog" title="确定">
 	<p>确定删除记录</p>
 </div>

@@ -19,7 +19,7 @@
 		$("img[id^=updateImg]").click(
 			function(){
 				$("#itemId").attr("value", $(this).attr('name'));
-				$("#operateForm").attr("action", "<%=request.getContextPath()%>/pages/target_catelog/targetCatelogAction_toModifyTargetCatelogPage.action");
+				$("#operateForm").attr("action", "<%=request.getContextPath()%>/pages/target/targetAction_toModifyTargetPage.action");
 				$("#operateForm").submit();
 			}
 		)
@@ -28,7 +28,7 @@
 			function(){
 				$('#dialog*').dialog('open');
 				$("#itemId").attr("value", $(this).attr('name'));
-				$("#operateForm").attr("action", "<%=request.getContextPath()%>/pages/target_catelog/targetCatelogAction_removeTargetCatelog.action");
+				$("#operateForm").attr("action", "<%=request.getContextPath()%>/pages/target/targetAction_removeTarget.action");
 				return false;
 			}
 		)
@@ -60,9 +60,9 @@
 </table>
 <%@ include file="../common/pagination.jsp"%></div>
 <s:form id="operateForm">
-	<s:hidden id="itemId" name="targetCatelog.id" />
+	<s:hidden id="itemId" name="target.id" />
 </s:form>
-<s:set name="actionUrl" value="/pages/target_catelog/targetCatelogAction_queryTargetCatelogs.action" />
+<s:set name="actionUrl" value="/pages/target/targetAction_getTargets.action" />
 <div id="dialog" title="确定">
 	<p>确定删除记录</p>
 </div>

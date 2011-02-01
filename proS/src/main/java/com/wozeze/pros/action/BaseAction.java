@@ -14,6 +14,10 @@ public abstract class BaseAction extends ActionSupport {
 	protected void setSuccuessMsg(String msg){
 		ActionContext.getContext().put(Constant.SUCCESS_CONTENT, msg);
 	}
+	
+	protected void setPageResult(Object obj){
+		ActionContext.getContext().put(Constant.PAGE_RESULT, obj);
+	}
 
 	public Page getPage() {
 		return page;

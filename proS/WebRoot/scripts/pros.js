@@ -19,7 +19,7 @@ jQuery(function($){
     currentText: '今天', 
     currentStatus: '显示本月', 
     monthNames: ['一月','二月','三月','四月','五月','六月', '七月','八月','九月','十月','十一月','十二月'], 
-    monthNamesShort: ['一','二','三','四','五','六', '七','八','九','十','十一','十二'], 
+    monthNamesShort: ['一月','二月','三月','四月','五月','六月', '七月','八月','九月','十月','十一月','十二月'], 
     monthStatus: '选择月份', 
     yearStatus: '选择年份', 
     weekHeader: '周', 
