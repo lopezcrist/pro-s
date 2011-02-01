@@ -8,7 +8,7 @@ import com.wozeze.pros.common.Constant;
 import com.wozeze.pros.domain.system.User;
 import com.wozeze.pros.service.iface.system.IUserService;
 
-public class UserAction extends BaseAction{
+public class UserAction extends BaseAction<User>{
 	
 	private static final long serialVersionUID = 1L;
 	
