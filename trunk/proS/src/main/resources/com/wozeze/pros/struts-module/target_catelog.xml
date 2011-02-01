@@ -9,6 +9,7 @@
 			<result name="updateTargetCatelogPage">/pages/target_catelog/updateTargetCatelog.jsp</result>
 			<result name="input">/pages/target_catelog/updateTargetCatelog.jsp</result>
 			<result name="operateSuccess">/pages/common/common_success.jsp</result>
+			<result name="operateFailure">/pages/common/common_failure.jsp</result>
 			<result name="queryTargetCatelogs">/pages/target_catelog/queryTargetCatelogs.jsp</result>
 		</action>
 	</package>

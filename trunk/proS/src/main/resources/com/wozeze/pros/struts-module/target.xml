@@ -9,6 +9,7 @@
 			<result name="updateTargetPage">/pages/target/updateTarget.jsp</result>
 			<result name="input">/pages/target/updateTarget.jsp</result>
 			<result name="operateSuccess">/pages/common/common_success.jsp</result>
+			<result name="operateFailure">/pages/common/common_failure.jsp</result>
 			<result name="queryTargets">/pages/target/queryTargets.jsp</result>
 		</action>
 	</package>
