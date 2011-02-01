@@ -1,7 +1,6 @@
 package com.wozeze.pros.action.target_catelog;
 
 import javax.annotation.Resource;
-import com.opensymphony.xwork2.ActionContext;
 import com.wozeze.pros.action.BaseAction;
 import com.wozeze.pros.common.Constant;
 import com.wozeze.pros.common.Message;
@@ -81,11 +80,11 @@ public class TargetCatelogAction extends BaseAction {
 	 * query all targetCatelogs
 	 * @return
 	 */
-	public String queryTargetCatelogs() {
+	public String getTargetCatelogs() {
 		QueryParam<TargetCatelog> queryParam = new QueryParam<TargetCatelog>(page, targetCatelog);
 		ResultObject<TargetCatelog> resultObject = targetCatelogService.getTargetCatelogs(queryParam);
 		page = resultObject.getPage();
-		ActionContext.getContext().put("targetCatelogs", resultObject.getResults());
+		setPageResult(resultObject.getResults());
 		return Constant.QUERY_TARGET_CATELOGS;
 	}
 	

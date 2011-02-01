@@ -48,13 +48,16 @@
 				name="target.detail" /></td>
 		</tr>
 		<tr>
-			<td colspan="2" id="td_center"><s:if test="pageType eq 'add'">
-				<s:submit id="submitButton" align="left" type="image"
-					src="/proS/image/add_button.png" />
-			</s:if> <s:else>
-				<s:submit id="submitButton" align="left" type="image"
-					src="/proS/image/update_button.png" />
-			</s:else></td>
+			<td colspan="2" id="td_center">
+				<s:if test="pageType eq 'add'">
+					<s:submit id="submitButton" align="left" type="image"
+						src="/proS/image/add_button.png" />
+				</s:if> 
+				<s:else>
+					<s:submit id="submitButton" align="left" type="image"
+						src="/proS/image/update_button.png" />
+				</s:else>
+			</td>
 		</tr>
 	</table>
 	<s:hidden name="target.id" />

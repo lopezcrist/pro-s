@@ -26,4 +26,23 @@ public interface ITargetService<T> {
 	 * @return
 	 */
 	public ResultObject<Target> getTargets(QueryParam<T> queryParam);
+	
+	/**
+	 * fina a target by id
+	 * @param target
+	 * @return
+	 */
+	public Target getTarget(Target target);
+
+	/**
+	 * remove the target
+	 * @param target
+	 */
+	public void modifyTarget(Target target);
+	
+	/**
+	 * remove the target
+	 * @param target
+	 */
+	public void removeTarget(Target target);
 }

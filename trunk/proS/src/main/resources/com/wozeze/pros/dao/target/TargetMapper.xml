@@ -48,4 +48,37 @@
 			</if>
 		</where>
 	</select>
+	
+	<select id="queryTargetById" parameterType="target" resultType="target">
+		SELECT t.id id,
+        t.target_name name,
+        t.detail detail,
+        to_char(t.begin_date,'yyyy-mm-dd') beginDate,
+        to_char(t.end_date,'yyyy-mm-dd') endDate,
+        t2.catelog_name "targetCatelog.name",
+        t2.id "targetCatelog.id"
+	      FROM te_target t
+	    JOIN tr_target_catelog t1 ON t.id = t1.target_id
+	    JOIN te_target_catelog t2 ON t1.catelog_id = t2.id
+	    WHERE t.id = #{id}
+	</select>
+	
+	<update id="updateTarget" parameterType="target">
+		UPDATE te_target t
+    	SET t.target_name = #{name},
+	        t.detail = #{detail},
+	        t.begin_date = to_date(#{beginDate}, 'yyyy-mm-dd'),
+	        t.end_date = to_date(#{endDate}, 'yyyy-mm-dd')
+	    WHERE t.id = #{id}
+	</update>
+	
+	<delete id="deleteTargetRelationTargetCatelog" parameterType="target">
+		DELETE FROM tr_target_catelog t
+    	WHERE t.target_id = #{id}
+	</delete>
+	
+	<delete id="deleteTarget" parameterType="target">
+		DELETE FROM te_target t
+		WHERE t.id = #{id}
+	</delete>
 </mapper>
