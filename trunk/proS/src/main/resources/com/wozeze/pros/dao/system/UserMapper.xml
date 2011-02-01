@@ -4,7 +4,7 @@
 
 <mapper namespace="com.wozeze.pros.dao.system.UserMapper">
   <select id="queryUserByUserNameAndPassword" parameterType="user" resultType="user">
-    SELECT USERNAME as name          
+    SELECT ID, USERNAME as name          
     FROM TE_USER
     WHERE USERNAME = #{name}
     AND PASSWORD = #{password}

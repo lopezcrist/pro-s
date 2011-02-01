@@ -14,24 +14,30 @@
 		(#{id}, #{name}, #{catelogDetail})
 	</insert>
 	
-	<select id="queryTargetCatelogs" parameterType="queryParam" resultType="targetCatelog">
-			select t.id     AS id,
+	<insert id="insertTargetCatelogRelationUser" parameterType="targetCatelog">
+		INSERT INTO tr_user_target_catelog (user_id, target_catelog_id)
+		VALUES (#{user.id}, #{id})
+	</insert>
+	
+	<select id="queryTargetCatelogPagination" parameterType="pagination" resultType="targetCatelog">
+			SELECT t.id     AS id,
        		t.catelog_name 	AS name,
       		(CASE WHEN LENGTH(t.detail) >= 15 then substr(t.detail,1,15)||'...' else t.detail end)  AS catelogDetail
-  			from te_target_catelog t
-  			<where>
-				<if test="!all">
-					<![CDATA[  			
-		 			 rowid in
-		      		 (select rid
-		        	  from (select rownum rn, rid
-		                  from (select rowid rid, id from te_target_catelog order by id desc)
-		                 where rownum <= #{page.startRow} + #{page.pageSize})
-		       			  where rn > #{page.startRow})
-		 				order by id desc
-		 			]]>
- 				</if>
- 			</where>
+  			FROM te_target_catelog t
+  			JOIN tr_user_target_catelog t1 ON t.id = t1.target_catelog_id
+        	JOIN te_user t2 ON t1.user_id = t2.id
+        	WHERE       
+            t2.id = #{paramObject.user.id}
+  			<if test="!all">
+  				<![CDATA[
+	  				AND t.rowid in
+	               (SELECT rid
+	                FROM (SELECT ROWNUM rn, rid
+	                      from (SELECT ROWID rid, id FROM te_target_catelog)
+	                     WHERE ROWNUM <= #{startRow} + #{pageSize})
+	                   WHERE rn > #{startRow})
+                ]]>
+  			</if>				
 	</select>
 	
 	<delete id="deleteTargetCatelog" parameterType="targetCatelog">
