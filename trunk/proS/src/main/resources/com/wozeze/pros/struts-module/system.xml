@@ -10,7 +10,7 @@
 			<result name="input">/pages/system/user_{1}.jsp</result>
 			<result name="loginFailure">/pages/system/user_login.jsp</result>
 			<result name="registerSuccess">/pages/system/user_login.jsp</result>
-			<result name="loginSuccess">/index.jsp</result>
+			<result name="loginSuccess" type="redirect">/pages/target/targetAction_findTargets.action</result>
 			<result name="logoutSuccess">/pages/system/user_login.jsp</result>
 		</action>
 	</package>
