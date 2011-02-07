@@ -47,9 +47,9 @@ public class UserAction extends BaseAction<User>{
 	 * @throws Exception
 	 */
 	public String login() {
-		User user1 = userService.getUserByUsernameAndPassword(user);
-		if(user1!=null){
-			ActionContext.getContext().getSession().put(Constant.USER, user1);
+		User userExists = userService.getUserByUsernameAndPassword(user);
+		if(userExists != null){
+			ActionContext.getContext().getSession().put(Constant.USER, userExists);
 			return Constant.LOGIN_SUCCESS;
 		}else{
 			this.addFieldError(Constant.USER_NAME, getText(Message.USER_NAME_PASSWORD_WRONG));
