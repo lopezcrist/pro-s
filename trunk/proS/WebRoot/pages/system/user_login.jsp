@@ -98,7 +98,7 @@ table {
 		</tr>
 		<tr>
 			<td class="tdLabel">密码:</td>
-			<td><s:textfield cssClass="s_text" name="user.password"/></td>
+			<td><s:password cssClass="s_text" name="user.password"/></td>
 		</tr>
 		<tr>
 			<td></td>
