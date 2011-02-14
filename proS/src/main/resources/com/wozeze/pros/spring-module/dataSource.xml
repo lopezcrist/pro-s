@@ -41,6 +41,7 @@
 	</bean>
 	
 	<!-- C3P0 dataSource -->
+	<!-- 
 	<bean id="c3p0" class="com.mchange.v2.c3p0.ComboPooledDataSource"/>
 	<bean id="c3p0DataSource" class="com.wozeze.pros.dao.C3P0Datasource">
 		<constructor-arg type="com.mchange.v2.c3p0.ComboPooledDataSource" ref="c3p0"></constructor-arg>
@@ -57,6 +58,7 @@
 		<property name="acquireIncrement" value="3" />
 		<property name="maxIdleTimeExcessConnections" value="1" /> 
 	</bean>
+	 -->
 
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
