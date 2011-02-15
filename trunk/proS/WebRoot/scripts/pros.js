@@ -34,15 +34,15 @@ jQuery(function($){
     initStatus: '请选择日期', 
     isRTL: false,
     changeMonth: true,
-	"closeText": 'X',
-	"minDate": new Date(),
+	closeText: 'X',	
 	navigationAsDateFormat: true,
-	"showButtonPanel": true,
-	"showMonthAfterYear": true,
-	"showOn": 'both',
+	showButtonPanel: true,
+	showMonthAfterYear: true,
+	showOn: 'both',
 	yearRange: '2011:2015',
 	yearSuffix: '年',
-	showOtherMonths: true
+	showOtherMonths: true,
+	buttonText: '请选择日期'
  	}; 
     $.datepicker.setDefaults($.datepicker.regional['zh-CN']); 
 });
