@@ -39,7 +39,7 @@ public class ExceptionInterceptor extends AbstractInterceptor {
 		} catch (SQLException ex) {
 			throw new BusinessException("操作数据库异常！");
 		} catch (NoSuchMethodError ex) {
-			throw new BusinessException("方法末找到异常！");
+			throw new BusinessException("方法未找到异常！");
 		} catch (InternalError ex) {
 			throw new BusinessException("Java虚拟机发生了内部错误");
 		} catch (Exception ex) {
