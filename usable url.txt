@@ -1,0 +1,7 @@
+Maven jar dependency url
+http://mvnrepository.com/
+
+SVN´úÀí
+http-proxy-host = 061244235034.static.ctinets.com
+http-proxy-port = 3128
+

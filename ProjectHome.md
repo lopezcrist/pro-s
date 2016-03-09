@@ -1,0 +1,2 @@
+I want to program a system, almost like a framework, not a all-function one. Easy-use, easy-maintain, and reusable are real targets of the framework.
+> On the other hand, it's a self-interesting project, not bussiness, so if you like it, or you want to give support to the project, I'm very happy and thankful.
